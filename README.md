@@ -8,7 +8,7 @@ Módulo con opciones avanzadas para XLSX
     
 </ul>
 
-![alt text](https://raw.githubusercontent.com/rocketbot-cl/AdvancedXLSX/master/example/xslx.jpg)
+![alt text](https://github.com/rocketbot-cl/AdvancedXLSX/blob/master/example/xlsx.jpg)
 
 
 <h2>License</h2>
