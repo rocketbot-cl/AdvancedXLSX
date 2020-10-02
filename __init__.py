@@ -120,7 +120,10 @@ if module == "GetCell":
 
 if module == "createSheet":
 
-    excel = GetGlobals("xlsx")
+    try:
+        excel = GetGlobals("xlsx")
+    except:
+        excel = GetGlobals("xls")
     name = GetParams("name")
     try:
         wb = excel.file_[excel.actual_id]["workbook"]
