@@ -30,20 +30,20 @@ import sys
 import copy
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'AdvancedExcel' + os.sep + 'libs' + os.sep
-sys.path.append(cur_path)
-
-
+if cur_path not in sys.path:
+    sys.path.append(cur_path)
 
 module = GetParams("module")
+
+try:
+    excel = GetGlobals("xlsx")
+except:
+    excel = GetGlobals("xls")
 
 
 if module == "GetCell":
     
     try:
-        try:
-            excel = GetGlobals("xlsx")
-        except:
-            excel = GetGlobals("xls")
         range_ = GetParams("range")
         var_ = GetParams("var_")
 
@@ -118,18 +118,35 @@ if module == "GetCell":
     except:
         PrintException()
 
-if module == "createSheet":
+try:
+    if module == "createSheet":
 
-    try:
-        excel = GetGlobals("xlsx")
-    except:
-        excel = GetGlobals("xls")
-    name = GetParams("name")
-    try:
+        name = GetParams("name")
+        
         wb = excel.file_[excel.actual_id]["workbook"]
         wb.create_sheet(name)
-    except Exception as e:
-        print("\x1B[" + "31;40mAn error occurred\u2193\x1B[" + "0m")
+        
+
+    if module == "countRange":
+        wb = excel.file_[excel.actual_id]["workbook"]
+        sheet = GetParams("sheet_name")
+        range_ = GetParams("range")
+        row_var = GetParams("row")
+        col_var = GetParams("column")
+        
+        sheet = wb.get_sheet_by_name("Sheet")
+        column = sheet[range_].column
+        row = sheet[range_].row
+        col_length = len([column for column in sheet.columns][column - 1])
+        row_length = len([row for row in sheet.rows][row - 1])
+        
+        if row_var:
+            SetVar(col_var, row_length)
+
+        if col_var:
+            SetVar(row_var, col_length)
+
+except Exception as e:
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
         raise e
-
