@@ -6,9 +6,14 @@ Módulo con opciones avanzadas para XLSX
     <li>Get Fromatted cells</li>
     <li>Create sheet</li>
     <li>Count in range</li>
+    <li>Delete Row/Column</li>
 </ul>
 
 ![alt text](https://github.com/rocketbot-cl/AdvancedXLSX/blob/master/example/xlsx.jpg)
+
+
+## Updates
+
 
 
 <h2>License</h2>

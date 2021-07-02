@@ -29,9 +29,11 @@ import os
 import sys
 import copy
 base_path = tmp_global_obj["basepath"]
-cur_path = base_path + 'modules' + os.sep + 'AdvancedExcel' + os.sep + 'libs' + os.sep
+cur_path = base_path + 'modules' + os.sep + 'AdvancedXlsx' + os.sep + 'libs' + os.sep
 if cur_path not in sys.path:
     sys.path.append(cur_path)
+
+from advanced_xlsx import AdvancedXlsx
 
 module = GetParams("module")
 
@@ -40,6 +42,9 @@ try:
 except:
     excel = GetGlobals("xls")
 
+if "workbook" in excel.file_[excel.actual_id]:
+    wb = excel.file_[excel.actual_id]["workbook"]
+    advanced_xlsx = AdvancedXlsx(wb)
 
 if module == "GetCell":
     
@@ -122,29 +127,52 @@ try:
     if module == "createSheet":
 
         name = GetParams("name")
-        
-        wb = excel.file_[excel.actual_id]["workbook"]
         wb.create_sheet(name)
         
 
     if module == "countRange":
-        wb = excel.file_[excel.actual_id]["workbook"]
+        
         sheet = GetParams("sheet_name")
         range_ = GetParams("range")
         row_var = GetParams("row")
         col_var = GetParams("column")
         
-        sheet = wb.get_sheet_by_name("Sheet")
-        column = sheet[range_].column
-        row = sheet[range_].row
-        col_length = len([column for column in sheet.columns][column - 1])
-        row_length = len([row for row in sheet.rows][row - 1])
+        advanced_xlsx.change_sheet(sheet)
+        
+        col_length, row_length = advanced_xlsx.count_by_range(range_)
         
         if row_var:
             SetVar(col_var, row_length)
 
         if col_var:
             SetVar(row_var, col_length)
+
+    if module == "delete_cell":
+        sheet = GetParams("sheet_name")
+        row_var = GetParams("row")
+        col_var = GetParams("column")
+        
+        advanced_xlsx.change_sheet(sheet)
+        if row_var:
+            advanced_xlsx.delete_rows(row_var)
+
+        if col_var:
+            advanced_xlsx.delete_columns(col_var)
+
+    if module == "open_xls":
+        path = GetParams("path")
+        id_ = GetParams("id")
+
+        advanced_xlsx = AdvancedXlsx()
+        wb = advanced_xlsx.open_xls(path)
+        excel.actual_id = id_
+        excel.file_[excel.actual_id]= {
+            "workbook": wb,
+            "sheet": wb.active
+        }
+
+    if module == "get_by_filter":
+        advanced_xlsx.get_cells_by_range()
 
 except Exception as e:
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
