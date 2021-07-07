@@ -9,17 +9,13 @@ def whichOperation(myCell, eachOperation, myValue, tipo):
             return eval(str(myCell) + eachOperation + str(myValue))
 
     elif (tipo == "re"):
-        cant = 0
         if(eachOperation.startswith("*") and eachOperation.endswith("*")):
-            if (cant != 1):
-                cant = 1
-                isIt = str(eachOperation)[1:-1] in str(myCell)
-                return isIt
+            if (str(eachOperation)[1:-1] in str(myCell)):
+                return True
+            return False
         elif (eachOperation.startswith("*") and str(myCell).startswith(str(eachOperation[1:]))):
-            if (cant != 1):
-                cant = 1
-                return True
+            return True
         elif (eachOperation.endswith("*") and str(myCell).endswith(str(eachOperation[:-1]))):
-            if (cant != 1):
-                cant = 1
-                return True
+            return True
+        else:
+            return False
