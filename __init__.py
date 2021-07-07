@@ -34,6 +34,8 @@ if cur_path not in sys.path:
     sys.path.append(cur_path)
 
 from advanced_xlsx import AdvancedXlsx
+from whichOperation import whichOperation
+from openpyxl.utils.cell import column_index_from_string
 
 module = GetParams("module")
 
@@ -124,6 +126,104 @@ if module == "GetCell":
         PrintException()
 
 try:
+    if (module == "advanceFilter"):
+
+        sheet = GetParams("sheetName")
+
+        ws = advanced_xlsx.change_sheet(sheet)
+
+        userFilters = GetParams("userFilters")
+        userFilters = eval(userFilters)
+        whereToStoreResult = GetParams("whereToStoreResult")
+        filtros = userFilters
+        detailedResult = GetParams("detailedResult")
+
+        variableConTodo = []
+        firstFilter = filtros[0]
+        firstFilterSplited = firstFilter.split(' ')
+        tipo = None
+        
+        if (len(firstFilterSplited) == 2):
+            tipo = "re"
+            firstFilterSplited.append('')
+        elif (len(firstFilterSplited) == 3):
+            tipo = "common"
+
+        if (tipo == "common"):
+            firstFilterSplited[2] = firstFilterSplited[2].replace('%', ' ')
+            firstFilterSplited[2] = firstFilterSplited[2].replace('\'', '')
+
+        for index, row in enumerate (ws.iter_rows()):
+            columna = column_index_from_string(firstFilterSplited[0])
+            columna -= 1
+            cellValue = (row[columna].value)
+            if (isinstance(cellValue, str) and tipo == "common" and firstFilterSplited[1] != "=="):
+                continue
+            try:
+                firstFilterSplited[2] = eval(firstFilterSplited[2])
+            except:
+                pass
+            if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
+                variableConTodo.append([{"row" : f"{index}", "data" : row}])
+        
+        count = 0
+        variableConCasiTodo = []
+        variableFinal = variableConTodo
+        if (len(filtros) > 1):
+            for filtro in filtros:
+                if (count == 0):
+                    count += 1
+                else:
+                    filtroSplited = filtro.split(' ')
+                    if (len(filtroSplited) == 2):
+                        tipo = "re"
+                        filtroSplited.append(0)
+                    elif (len(filtroSplited) == 3):
+                        tipo = "common"
+                    for index, row in enumerate (variableFinal):
+                        columna = column_index_from_string(filtroSplited[0])
+                        columna -= 1
+                        xlRow = row[0]["data"]
+                        realRow = row[0]["row"]
+                        cellValue = xlRow[columna].value
+                        if (isinstance(cellValue, str) and tipo == "common" and filtroSplited[1] != "=="):
+                            continue
+                        try:
+                            filtroSplited[2] = eval(filtroSplited[2])
+                        except:
+                            pass
+                        if (whichOperation(cellValue, filtroSplited[1], filtroSplited[2], tipo)):
+                            variableConCasiTodo.append([{"row": f"{realRow}", "data" : xlRow}])
+                    variableFinal = variableConCasiTodo
+                    variableConCasiTodo = []
+        
+        rowFake = None
+        provisionaryArray = []
+        variableSinDetail = []
+        for row in variableFinal:
+            cada = row[0]["data"]
+            for columna in cada:
+                valor = columna.value
+                if (valor == None):
+                    valor = ''
+                provisionaryArray.append(valor)
+                rowFake = eval(row[0]["row"])
+            row[0]["row"] = str(int(row[0]["row"]) + 1)
+            row[0]["data"] = provisionaryArray
+            variableSinDetail.append(provisionaryArray)
+            provisionaryArray = []
+        variableConDetail = []
+
+        for i in variableFinal:
+            variableConDetail.append(i[0])
+
+        detailedResult = GetParams("detailedResult")
+
+        if (detailedResult == "True"):
+            SetVar(whereToStoreResult, variableConDetail)
+        else:
+            SetVar(whereToStoreResult, variableSinDetail)
+                
     if module == "createSheet":
 
         name = GetParams("name")

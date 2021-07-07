@@ -7,9 +7,9 @@ class AdvancedXlsx:
 
     def __init__(self, wb=Workbook(), sheet=None):
         self.wb = wb
-        if sheet is None:
-           sheet = self.wb.active.name  
-        self.wb.get_sheet_by_name(sheet)
+        # if sheet is None:
+        #    sheet = self.wb.active.name  
+        # self.wb.get_sheet_by_name(sheet)
 
     def open_xls(self, path: str)->Workbook:
         with open(path, "r", encoding="latin-1") as f:

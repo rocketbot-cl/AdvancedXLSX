@@ -215,6 +215,97 @@
       "docker": true
     },
     {
+        "en": {
+          "title": "Column filter",
+          "description": "Filter by column",
+          "title_options": null,
+          "options": null
+        },
+        "es": {
+          "title": "Filtrar por columna",
+          "description": "Filtrar por columna",
+          "title_options": null,
+          "options": null
+        },
+        "form": {
+          "css": "modal-lg",
+          "inputs": [
+            {
+              "type": "input",
+              "placeholder": {
+                "es": "[\"A > 3\", \"D *ARS\", \"C == Factura\"]",
+                "en": "[\"A > 3\", \"D *ARS\", \"C == Invoice\"]"
+              },
+              "title": {
+                "es": "Filtros: ",
+                "en": "Filters: "
+              },
+              "help":{
+                  "es" : "*palabra => empieza con. palabra* => termina con. *palabra* => contiene.",
+                  "en" : "*word => starts with. word* => ends with. *word* => has into it."
+              },
+              "id": "userFilters",
+              "css": "col-md-12"
+            },
+            {
+                "type": "input",
+                "placeholder": {
+                  "es": "hoja1",
+                  "en": "sheet1"
+                },
+                "title": {
+                  "es": "Nombre de la hoja: ",
+                  "en": "Sheet's name: "
+                },
+                "id": "sheetName",
+                "css": "col-md-6"
+            },
+            {
+                "type": "input",
+                "placeholder": {
+                  "es": "resultado",
+                  "en": "result"
+                },
+                "title": {
+                  "es": "Variable donde almacenar resultado: ",
+                  "en": "Variable where to store the result: "
+                },
+                "id": "whereToStoreResult",
+                "css": "col-md-6"
+              },
+              {
+                "type": "checkbox",
+                "placeholder": {
+                    "es": "Checkbox",
+                    "en": "Checkbox"                        
+                },
+                "title": {
+                    "es": "Resultado detallado:",
+                    "en": "Detailed result:"
+                },
+                "help": {
+                    "es": "Resultado: [1, 2, 3]. Resultado detallado: [{'row': 2, 'data': [1, 2, 3]}]",
+                    "en": "Result: [1, 2, 3]. Detailed result: [{'row': 2, 'data': [1, 2, 3]}]"
+                },
+                "id": "detailedResult",
+                "css": "col-md-6"
+            }
+          ]
+        },
+        "video_youtube": "",
+        "icon": "data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgNTQ4LjI5MSA1NDguMjkxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NDguMjkxIDU0OC4yOTE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNNDg2LjIwNiwxOTYuMTIxSDQ3My4wNHYtNjMuNTI1YzAtMC4zOTYtMC4wNjItMC43OTUtMC4xMDktMS4yYy0wLjAyMS0yLjUyLTAuODI5LTQuOTk3LTIuNTU2LTYuOTZMMzY0LjY1NywzLjY3NyAgIGMtMC4wMzMtMC4wMzEtMC4wNjQtMC4wNDItMC4wODUtMC4wNzVjLTAuNjMtMC43MDQtMS4zNjQtMS4yOS0yLjE0My0xLjc5NmMtMC4yMjktMC4xNTQtMC40NjEtMC4yODMtMC43MDItMC40MTkgICBjLTAuNjcyLTAuMzY1LTEuMzg3LTAuNjcyLTIuMTIxLTAuODkzYy0wLjItMC4wNTItMC4zNzktMC4xMzQtMC41NzctMC4xODZDMzU4LjIzLDAuMTE4LDM1Ny40MDEsMCwzNTYuNTYyLDBIOTYuNzU3ICAgQzg0Ljg5NCwwLDc1LjI1Niw5LjY0OSw3NS4yNTYsMjEuNTAydjE3NC42MTNINjIuMDkyYy0xNi45NzEsMC0zMC43MzIsMTMuNzU2LTMwLjczMiwzMC43MzN2MTU5LjgxMiAgIGMwLDE2Ljk2MSwxMy43NjEsMzAuNzMxLDMwLjczMiwzMC43MzFoMTMuMTY0VjUyNi43OWMwLDExLjg1NCw5LjYzOCwyMS41MDEsMjEuNTAxLDIxLjUwMWgzNTQuNzc2ICAgYzExLjg1MywwLDIxLjUwMS05LjY0NywyMS41MDEtMjEuNTAxVjQxNy4zOTJoMTMuMTY2YzE2Ljk2NiwwLDMwLjcyOS0xMy43NjQsMzAuNzI5LTMwLjczMVYyMjYuODU0ICAgQzUxNi45MywyMDkuODcyLDUwMy4xNzYsMTk2LjEyMSw0ODYuMjA2LDE5Ni4xMjF6IE05Ni43NTcsMjEuNTAyaDI0OS4wNTR2MTEwLjAwNmMwLDUuOTQsNC44MTcsMTAuNzUxLDEwLjc1MSwxMC43NTFoOTQuOTcyICAgdjUzLjg2MUg5Ni43NTdWMjEuNTAyeiBNMzE0LjU3NiwzMTQuNjYxYy0yMS4xMjQtNy4zNTktMzQuOTA4LTE5LjA0NS0zNC45MDgtMzcuNTQ0YzAtMjEuNjk4LDE4LjExLTM4LjI5Nyw0OC4xMTYtMzguMjk3ICAgYzE0LjMzMSwwLDI0LjkwMywzLjAxNCwzMi40NDIsNi40MTNsLTYuNDExLDIzLjJjLTUuMDkxLTIuNDQ2LTE0LjE0Ni02LjAzNy0yNi41OTgtNi4wMzdzLTE4LjQ4OCw1LjY2Mi0xOC40ODgsMTIuMjY2ICAgYzAsOC4xMTUsNy4xNzEsMTEuNjk2LDIzLjU4LDE3LjkyMWMyMi40NDYsOC4zMDUsMzMuMDEzLDIwLDMzLjAxMywzNy45MjFjMCwyMS4zMjMtMTYuNDE1LDM5LjQzNS01MS4zMTgsMzkuNDM1ICAgYy0xNC41MjQsMC0yOC44NjEtMy43NjktMzYuMDMxLTcuNzM3bDUuODQzLTIzLjc3YzcuNzM4LDMuOTU4LDE5LjYyNyw3LjkyNywzMS44ODUsNy45MjdjMTMuMjE4LDAsMjAuMTg4LTUuNDcsMjAuMTg4LTEzLjc3NCAgIEMzMzUuODk0LDMyNC42NjcsMzI5Ljg1OCwzMjAuMTMsMzE0LjU3NiwzMTQuNjYxeiBNMjY1LjkxNywzNDMuOXYyNC4xNTdoLTc5LjQzOVYyNDAuODgyaDI4Ljg3N1YzNDMuOUgyNjUuOTE3eiBNOTQuMjM3LDM2OC4wNTcgICBINjEuNDExbDM2Ljc4OC02NC4zNTNsLTM1LjQ3My02Mi44MjdoMzMuMDIxbDExLjEyNSwyMy4yMWMzLjc3NCw3LjczNiw2LjYwNiwxMy45NTQsOS42MjgsMjEuMTM1aDAuMzY3ICAgYzMuMDI3LTguMTE1LDUuNDc3LTEzLjc3NSw4LjY3NS0yMS4xMzVsMTAuNzU2LTIzLjIxaDMyLjgyN2wtMzUuODQ4LDYyLjA2NmwzNy43NCw2NS4xMDNoLTMzLjIwMmwtMTEuNTE1LTIzLjAyMiAgIGMtNC43MDktOC44NTUtNy43My0xNS40NjUtMTEuMzE2LTIyLjgyNGgtMC4zNzVjLTIuNjQ1LDcuMzU5LTUuODQ1LDEzLjk2OS05LjgxMSwyMi44MjRMOTQuMjM3LDM2OC4wNTd6IE00NTEuNTM0LDUyMC45NjhIOTYuNzU3ICAgVjQxNy4zOTJoMzU0Ljc3NlY1MjAuOTY4eiBNNDUxLjcyOCwzNjguMDU3bC0xMS41MTItMjMuMDIyYy00LjcxNS04Ljg2My03LjczMy0xNS40NjUtMTEuMzE5LTIyLjgyNWgtMC4zNjYgICBjLTIuNjQ2LDcuMzYtNS44NTgsMTMuOTYyLTkuODI3LDIyLjgyNWwtMTAuNTUxLDIzLjAyMmgtMzIuODM2bDM2Ljc4OC02NC4zNTNsLTM1LjQ3MS02Mi44MjdoMzMuMDJsMTEuMTM5LDIzLjIxICAgYzMuNzcsNy43MzYsNi41OTMsMTMuOTU0LDkuNjE4LDIxLjEzNWgwLjM3N2MzLjAxMy04LjExNSw1LjQ1OS0xMy43NzUsOC42NzEtMjEuMTM1bDEwLjc1Mi0yMy4yMWgzMi44MzVsLTM1Ljg0OSw2Mi4wNjYgICBsMzcuNzMzLDY1LjEwM2gtMzMuMjAyVjM2OC4wNTd6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==",
+        "module": "advanceFilter",
+        "module_name": "AdvancedXLSX",
+        "visible": true,
+        "options": false,
+        "father": "module",
+        "group": "scripts",
+        "linux": false,
+        "windows": true,
+        "mac": false,
+        "docker": false
+    },
+    {
       "en": {
         "title": "Delete Row/Column",
         "description": "Command to delete rows or columns",
