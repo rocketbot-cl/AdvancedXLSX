@@ -261,19 +261,6 @@
                 "css": "col-md-6"
             },
             {
-                "type": "input",
-                "placeholder": {
-                  "es": "resultado",
-                  "en": "result"
-                },
-                "title": {
-                  "es": "Variable donde almacenar resultado: ",
-                  "en": "Variable where to store the result: "
-                },
-                "id": "whereToStoreResult",
-                "css": "col-md-6"
-              },
-              {
                 "type": "checkbox",
                 "placeholder": {
                     "es": "Checkbox",
@@ -289,7 +276,20 @@
                 },
                 "id": "detailedResult",
                 "css": "col-md-6"
-            }
+            },
+            {
+                "type": "input",
+                "placeholder": {
+                  "es": "resultado",
+                  "en": "result"
+                },
+                "title": {
+                  "es": "Variable donde almacenar resultado: ",
+                  "en": "Variable where to store the result: "
+                },
+                "id": "whereToStoreResult",
+                "css": "col-md-6"
+              }
           ]
         },
         "video_youtube": "",
