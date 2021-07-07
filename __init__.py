@@ -133,7 +133,7 @@ try:
         except:
             pass
         if (sheet == None):
-            sheet = "default"
+            sheet = wb.active
         
         ws = advanced_xlsx.change_sheet(sheet)
 
