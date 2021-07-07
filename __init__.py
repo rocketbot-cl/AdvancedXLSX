@@ -141,7 +141,6 @@ try:
         userFilters = eval(userFilters)
         whereToStoreResult = GetParams("whereToStoreResult")
         filtros = userFilters
-        detailedResult = GetParams("detailedResult")
 
         variableConTodo = []
         firstFilter = filtros[0]
