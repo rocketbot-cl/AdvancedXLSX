@@ -44,9 +44,10 @@ try:
 except:
     excel = GetGlobals("xls")
 
-if "workbook" in excel.file_[excel.actual_id]:
-    wb = excel.file_[excel.actual_id]["workbook"]
-    advanced_xlsx = AdvancedXlsx(wb)
+if excel.actual_id in excel.file_:
+    if "workbook" in excel.file_[excel.actual_id]:
+        wb = excel.file_[excel.actual_id]["workbook"]
+        advanced_xlsx = AdvancedXlsx(wb)
 
 if module == "GetCell":
     
@@ -266,6 +267,9 @@ try:
     if module == "open_xls":
         path = GetParams("path")
         id_ = GetParams("id")
+
+        if not id_:
+            id_ = "default"
 
         advanced_xlsx = AdvancedXlsx()
         wb = advanced_xlsx.open_xls(path)
