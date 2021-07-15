@@ -135,7 +135,7 @@ try:
         if not sheet:
             ws = wb.active
         else:
-            ws = wb.sheet_by_index(0)
+            ws = wb.get_sheet_by_name(sheet)
         
         # ws = advanced_xlsx.change_sheet(sheet)
 
