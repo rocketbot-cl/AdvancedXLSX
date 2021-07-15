@@ -129,14 +129,15 @@ if module == "GetCell":
 try:
     if (module == "advanceFilter"):
         
-        try:
-            sheet = GetParams("sheetName")
-        except:
-            pass
-        if (sheet == None):
-            sheet = wb.active
         
-        ws = advanced_xlsx.change_sheet(sheet)
+        sheet = GetParams("sheetName")
+        
+        if not sheet:
+            ws = wb.active
+        else:
+            ws = wb.sheet_by_index(0)
+        
+        # ws = advanced_xlsx.change_sheet(sheet)
 
         userFilters = GetParams("userFilters")
         userFilters = eval(userFilters)
