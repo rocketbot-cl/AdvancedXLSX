@@ -117,7 +117,11 @@ if module == "GetCell":
         if isinstance(cells, tuple):
             res = Advance_getCells(cells)
         else:            
-            res = Advance_formatCell(cells.value, cells.number_format)
+            try:
+                res = Advance_formatCell(cells.value, cells.number_format)
+            except:
+                if type(cells.value) is datetime.datetime:
+                    res = cells.value.strftime("%d-%m-%Y %H:%M:%S")
         if not res:
             res = ""
         if isinstance(res, datetime.date):
