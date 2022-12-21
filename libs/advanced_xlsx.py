@@ -6,6 +6,7 @@ import pandas as pd
 import win32com.client as win32
 import platform
 import csv
+
 class AdvancedXlsx:
 
     def __init__(self, wb=Workbook(), sheet=None):
