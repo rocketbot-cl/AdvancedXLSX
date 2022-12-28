@@ -175,11 +175,16 @@ class AdvancedXlsx:
 
     def change_format(self, sheet, range, format):
         datas = self.wb[sheet][range]
+        
         for data in datas:
             if isinstance(data, tuple):
                 for d in data:
-                    d._style.numFmtId = int(format)
+                    if d:
+                        # DO not erase the next line. It is necessary to make available '_style.numFmtId' to change the format.
+                        d.style_id
+                        d._style.numFmtId = int(format)
             else:
+                d.style_id
                 d._style.numFmtId = int(format)
     
     def new_sheet(self, sheet):
