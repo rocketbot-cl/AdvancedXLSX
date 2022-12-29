@@ -33,7 +33,7 @@ import traceback
 from openpyxl.utils.cell import column_index_from_string
 
 base_path = tmp_global_obj["basepath"]
-cur_path = base_path + 'modules' + os.sep + 'AdvancedXlsx' + os.sep + 'libs' + os.sep
+cur_path = base_path + 'modules' + os.sep + 'AdvancedXLSX' + os.sep + 'libs' + os.sep
 if cur_path not in sys.path:
     sys.path.append(cur_path)
 
