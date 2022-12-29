@@ -2,7 +2,7 @@
   
 Módulo con opciones avanzadas para XLSX  
 
-*Read this in other languages: [English](README.md), [Español](README_es.md), [Portugues](README_pr.md).*
+*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Español](Manual_AdvancedXLSX_es.md), [Portugues](Manual_AdvancedXLSX_pr.md).* 
 
 ![banner](imgs/Banner_AdvancedXLSX.png)
 
