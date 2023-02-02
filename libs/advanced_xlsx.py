@@ -133,34 +133,49 @@ class AdvancedXlsx:
         return self.sheet
 
     def insert_columns(self, col_range: str)->None:
-        col_range = col_range.split(":")
-        start = column_index_from_string(col_range[0])
-        try:
-            end = column_index_from_string(col_range[1]) + 1
-        except IndexError:
-            end = start + 1
-        self.sheet.insert_cols(start, end - start)
+        if ":" in col_range:
+            col_range = col_range.split(":")
+            start = column_index_from_string(col_range[0])
+            try:
+                end = column_index_from_string(col_range[1]) + 1
+            except IndexError:
+                end = start + 1
+            self.sheet.insert_cols(start, end - start)
+        else:
+            column = column_index_from_string(col_range)
+            self.sheet.insert_cols(column)
     
     def insert_rows(self, row_range: str)->None:
-        a = int(row_range.split(":")[0])
-        b = int(row_range.split(":")[1]) + 1
-        for row in range(a,b,1):
-            self.sheet.insert_rows(int(row))
+        
+        if ":" in row_range:
+            a = int(row_range.split(":")[0])
+            b = int(row_range.split(":")[1])
+            self.sheet.insert_rows(int(a), int(b))
+        else:
+            self.sheet.insert_rows(int(row_range))
     
     def delete_columns(self, col_range: str)->None:
-        col_range = col_range.split(":")
-        start = column_index_from_string(col_range[0])
-        try:
-            end = column_index_from_string(col_range[1]) + 1
-        except IndexError:
-            end = start + 1
-        self.sheet.delete_cols(start, end - start)
-    
+        
+        if ":" in col_range:
+            col_range = col_range.split(":")
+            start = column_index_from_string(col_range[0])
+            try:
+                end = column_index_from_string(col_range[1]) + 1
+            except IndexError:
+                end = start + 1
+            self.sheet.delete_cols(start, end - start)
+        else:
+            column = column_index_from_string(col_range)
+            self.sheet.delete_cols(column)
+            
     def delete_rows(self, row_range: str)->None:
-        a = int(row_range.split(":")[0])
-        b = int(row_range.split(":")[1]) + 1
-        for row in range(a,b,1):
-            self.sheet.delete_rows(int(row))
+        
+        if ":" in row_range:
+            a = int(row_range.split(":")[0])
+            b = int(row_range.split(":")[1])
+            self.sheet.delete_rows(int(a), int(b))
+        else:
+            self.sheet.delete_rows(int(row_range))
 
     def count_by_range(self, range_:str)->tuple:
         column = self.sheet[range_].column

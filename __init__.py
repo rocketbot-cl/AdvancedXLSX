@@ -256,21 +256,37 @@ if module == "delete_cell":
     row_var = GetParams("row")
     col_var = GetParams("column")
     
-    advanced_xlsx.change_sheet(sheet)
-    if row_var:
-        advanced_xlsx.delete_rows(row_var)
+    try:
+        advanced_xlsx.change_sheet(sheet)
 
-    if col_var:
-        advanced_xlsx.delete_columns(col_var)
+        if row_var:
+            advanced_xlsx.delete_rows(row_var)
+
+        if col_var:
+            advanced_xlsx.delete_columns(col_var)
+
+    except Exception as e:
+        print(traceback.print_exc())
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
+
 
 if module == "insert_cell":
     sheet = GetParams("sheet_name")
     row_var = GetParams("row")
     col_var = GetParams("column")
     
-    advanced_xlsx.change_sheet(sheet)
-    if row_var:
-        advanced_xlsx.insert_rows(row_var)
+    try:
+        advanced_xlsx.change_sheet(sheet)
+        if row_var:
+            advanced_xlsx.insert_rows(row_var)
 
-    if col_var:
-        advanced_xlsx.insert_columns(col_var)
+        if col_var:
+            advanced_xlsx.insert_columns(col_var)
+        
+    except Exception as e:
+        print(traceback.print_exc())
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
