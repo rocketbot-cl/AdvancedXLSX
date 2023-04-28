@@ -1,13 +1,18 @@
+
+
+
+
 # XLSX Advanced Options
   
-Módulo con opciones avanzadas para XLSX  
+Format cells, create and remove sheets, filter data, add and delete columns and rows, open xls files and transform them into xlsx format.  
 
-*Read this in other languages: [English](README.md), [Español](README_es.md), [Portugues](README_pr.md).*
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Overview
@@ -16,25 +21,28 @@ __Download__ and __install__ the content in 'modules' folder in Rocketbot path
 1. Open xls  
 Open a xls file to work with native command
 
-2. Fromat cells  
+2. Convert xls to xlsx  
+Convert an xls format file to xlsx format
+
+3. Format cells  
 Give format to cells
 
-3. Create sheet  
+4. Create sheet  
 Create a new sheet
 
-4. Remove sheet  
+5. Remove sheet  
 Remove a sheet from workbook
 
-5. Count in range  
+6. Count in range  
 Returns the maximum number of rows and columns from a cell
 
-6. Column filter  
+7. Column filter  
 Filter by column
 
-7. Delete Row/Column  
+8. Delete Row/Column  
 Command to delete rows or columns
 
-8. Insert Row/Column  
+9. Insert Row/Column  
 Command to insert rows or columns  
 
 

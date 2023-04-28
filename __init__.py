@@ -30,13 +30,19 @@ import sys
 import copy
 import datetime
 import traceback
-from openpyxl.utils.cell import column_index_from_string
+
 
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'AdvancedXLSX' + os.sep + 'libs' + os.sep
-if cur_path not in sys.path:
-    sys.path.append(cur_path)
+cur_path_x64 = os.path.join(cur_path, 'Windows' + os.sep +  'x64' + os.sep)
+cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
 
+if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
+        sys.path.append(cur_path_x64)
+if sys.maxsize > 32 and cur_path_x86 not in sys.path:
+        sys.path.append(cur_path_x86)
+
+from openpyxl.utils.cell import column_index_from_string
 from advanced_xlsx import AdvancedXlsx
 from whichOperation import whichOperation
 
@@ -78,20 +84,58 @@ if module == "open_xls":
         SetVar(var_, False)
         PrintException()
 
+if module == "xls_to_xlsx":
+    xls_path = GetParams("xls_path")
+    xlsx_path = GetParams("xlsx_path")
+    try:
+        advanced_xlsx = AdvancedXlsx()       
+        wb = advanced_xlsx.open_xls(xls_path)
+        wb.save(filename=xlsx_path)
+    except Exception as e:
+        print("Traceback: ", traceback.format_exc())
+        PrintException()
+        raise e
+        
+    
 if module == "format_cell":
 
     try:
         sheet_ = GetParams("sheet")
         range_ = GetParams("range")
+        # col = "True"
+        # row = "False"
         format_code = GetParams("format")
         var_ = GetParams("var_")
+        horizontal = GetParams("horizontal")
+        vertical = GetParams("vertical")
 
-        try:
-            int(format_code)
-        except:
-            raise Exception("Code must be an integer from the Built in Formats.")
+        import re
         
-        advanced_xlsx.change_format(sheet_, range_, format_code)
+        if not format_code or format_code == "":
+            format_code = 0
+        else:
+            try:
+                int(format_code)
+            except:
+                raise Exception("Code must be an integer from the Built in Formats.")
+
+        if range_:
+            regex = r"([a-zA-Z]*)([0-9]*):([a-zA-Z]*)([0-9]*)"
+            matches = re.match(regex, range_).groups()
+            rows = [(int(matches[1]) if matches[1] != "" else ""), (int(matches[3]) if matches[3] != "" else "")]
+            cols = [matches[0], matches[2]]
+        
+        # if col:
+        #     col = eval(col)
+        #     if col == True:
+        #         advanced_xlsx.change_format_col(sheet_, cols, format_code, horizontal, vertical)        
+        # if row:
+        #     row = eval(row)
+        #     if row == True:
+        #         advanced_xlsx.change_format_row(sheet_, rows, format_code, horizontal, vertical)
+        
+        # if not col and not row:
+        advanced_xlsx.change_format(sheet_, range_, format_code, horizontal, vertical)
      
         SetVar(var_, True)
     except Exception as e:
