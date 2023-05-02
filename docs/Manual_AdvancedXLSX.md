@@ -1,15 +1,19 @@
+
+
+
+
 # XLSX Advanced Options
   
-Módulo con opciones avanzadas para XLSX  
+Format cells, create and remove sheets, filter data, add and delete columns and rows, open xls files and transform them into xlsx format.  
 
-*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Español](Manual_AdvancedXLSX_es.md), [Portugues](Manual_AdvancedXLSX_pr.md).* 
-
+*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
+  
 ![banner](imgs/Banner_AdvancedXLSX.png)
-
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Description of the commands
@@ -24,13 +28,23 @@ Open a xls file to work with native command
 |Id (optional) |Session identifier|id|
 |Assign result to variable||Variable|
 
-### Fromat cells
+### Convert xls to xlsx
+  
+Convert an xls format file to xlsx format
+|Parameters|Description|example|
+| --- | --- | --- |
+|Path to XLS file |Select the XLS file you want to open|path/to/file/example.xls|
+|Path to XLSX file |Put the full path where you want to save the XLSX file (including name and '.xlsx' extension)|path/to/file/example.xlsx|
+
+### Format cells
   
 Give format to cells
 |Parameters|Description|example|
 | --- | --- | --- |
 |Sheet ||Sheet1|
 |Cells |Cells range|A1:B5|
+|Horizontal Alignment||---- Select ----|
+|Vertical Alignment||---- Select ----|
 |ID Formato |Format ID. Check Documentation https//learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.numberingformat?view=openxml-2.8.1|0|
 |Assign result to variable||Variable|
 
