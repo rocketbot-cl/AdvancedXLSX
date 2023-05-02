@@ -3,7 +3,7 @@ from six import text_type
 
 from collections import OrderedDict
 
-from lxml import etree
+from r_lxml import etree
 from ..treebuilders.etree import tag_regexp
 
 from . import base
