@@ -182,7 +182,7 @@ class Table(Element):
     """
     def __init__(self, table):
         """
-        takes an html table object (from lxml)
+        takes an html table object (from r_lxml)
         """
         super(Table, self).__init__(table)
         table_head = table.find('thead')
