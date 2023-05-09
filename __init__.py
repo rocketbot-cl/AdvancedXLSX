@@ -46,6 +46,7 @@ from openpyxl.utils.cell import column_index_from_string
 from advanced_xlsx import AdvancedXlsx
 from whichOperation import whichOperation
 
+
 module = GetParams("module")
 
 try:
@@ -65,7 +66,7 @@ if module == "open_xls":
     col = GetParams("col")
     
     if col:
-        col = [col]
+        col = col.split(",")
     
     if not id_:
         id_ = "default"
@@ -96,7 +97,21 @@ if module == "xls_to_xlsx":
         PrintException()
         raise e
         
+if module == "convert_to_csv":
+    csv_path = GetParams("csv_path")
+    delimiter = GetParams("delimiter") or ","
+    result = GetParams("var_")
     
+    try:
+        
+        advanced_xlsx.convert_to_csv(csv_path, delimiter)
+        SetVar(result, True)
+    except Exception as e:
+        print("Traceback: ", traceback.format_exc())
+        PrintException()
+        SetVar(result, False)
+        raise e
+
 if module == "format_cell":
 
     try:
