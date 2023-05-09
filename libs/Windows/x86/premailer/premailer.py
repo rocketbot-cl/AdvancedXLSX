@@ -9,8 +9,8 @@ from urllib.parse import urljoin, urlparse, unquote
 
 import cssutils
 import requests
-from r_lxml import etree
-from r_lxml.cssselect import CSSSelector
+from lxml import etree
+from lxml.cssselect import CSSSelector
 
 from premailer.cache import function_cache
 from premailer.merge_style import csstext_to_pairs, merge_styles

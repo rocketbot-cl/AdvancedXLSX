@@ -38,9 +38,9 @@ cur_path_x64 = os.path.join(cur_path, 'Windows' + os.sep +  'x64' + os.sep)
 cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
 
 if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
-        sys.path.append(cur_path_x64)
-if sys.maxsize > 32 and cur_path_x86 not in sys.path:
-        sys.path.append(cur_path_x86)
+    sys.path.append(cur_path_x64)
+elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
+    sys.path.append(cur_path_x86)
 
 from openpyxl.utils.cell import column_index_from_string
 from advanced_xlsx import AdvancedXlsx
