@@ -7,7 +7,7 @@ import os
 
 def lxml_available():
     try:
-        from r_lxml.etree import LXML_VERSION
+        from lxml.etree import LXML_VERSION
         LXML = LXML_VERSION >= (3, 3, 1, 0)
         if not LXML:
             import warnings

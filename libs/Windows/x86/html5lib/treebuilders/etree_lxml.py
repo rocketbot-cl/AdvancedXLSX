@@ -27,7 +27,7 @@ from .. import constants
 from . import etree as etree_builders
 from .. import _ihatexml
 
-import r_lxml.etree as etree
+import lxml.etree as etree
 from six import PY3, binary_type
 
 

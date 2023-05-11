@@ -3,6 +3,7 @@ from openpyxl import Workbook, worksheet
 import r_xlrd
 from openpyxl.utils.cell import column_index_from_string
 from openpyxl.styles import Alignment
+from datetime import datetime, timedelta
 import csv
 
 class AdvancedXlsx:
@@ -66,6 +67,7 @@ class AdvancedXlsx:
                 
                 # Format data as date for the columns given
                 if col:
+                    
                     for c in col:
                         c = eval(c)
                         try:
@@ -95,6 +97,20 @@ class AdvancedXlsx:
            
             # It deletes the default sheet, because the loop already creates one for one in the xls
             del self.wb[self.sheet.title]
+    
+    def convert_to_csv(self, path_csv: str, delimiter: str = ",")->None:
+        with open(path_csv, "w", newline="", encoding="utf-8") as f:
+            c = csv.writer(f, delimiter=delimiter)
+            for r in self.sheet.rows:
+                row = []
+                for cell in r:
+                    if isinstance(cell.value, float) and cell.value.is_integer():
+                        row.append(int(cell.value))
+                    else:
+                        row.append(cell.value)
+                c.writerow(row)
+    
+    
     
     # Deprecated after using tablepyxl library
     def get_from_html(self, soup: BeautifulSoup)->None:
