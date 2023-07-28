@@ -2,7 +2,9 @@
 
 from openpyxl.compat import safe_string
 from openpyxl.xml.functions import Element, SubElement, whitespace, XML_NS, REL_NS
-from openpyxl import LXML
+
+from openpyxl import lxml
+
 from openpyxl.utils.datetime import to_excel, to_ISO8601
 from datetime import timedelta
 

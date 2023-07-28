@@ -36,6 +36,14 @@ Convierte un archivo formato xls a formato xlsx
 |Ruta archivo XLS |Selecciona el archivo XLS que quieres abrir|path/to/file/example.xls|
 |Ruta archivo XLSX |Coloque la ruta completa donde quiere guardar el archivo XLSX (incluyendo nombre y extensión '.xlsx')|path/to/file/example.xlsx|
 
+### Renombrar hoja
+  
+Renombrar una hoja
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Nombre de la hoja a renombrar |Nombre que tiene la hoja a renombrar|OldSheet|
+|Nuevo nombre de la hoja |Nombre que tendrá la hoja|NewSheet|
+
 ### Formatear celdas
   
 Dar formato a celdas
@@ -99,3 +107,12 @@ Comando para insertar filas y/o columnas
 |Nombre de la hoja |Nombre de la hoja a la que se le eliminará la fila o columna|Sheet1|
 |Fila(s)|Rango de filas a eliminar|1:5|
 |Columna(s)|Rango de columnas a eliminar|A:G|
+
+### Abrir xls
+  
+Abre un archivo xls para trabajar con el comando nativo
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Ruta imagen |Selecciona el archivo de la imagen que quieres insertar en el documento|example.png|
+|Hoja |Nombre de la hoja del documento donde insertar la imagen|Sheet1|
+|Celda |Celda donde insertar la imagen|A1|
