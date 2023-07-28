@@ -24,26 +24,32 @@ Abra um arquivo xls para trabalhar com o comando nativo
 2. Converter xls para xlsx  
 Converter um arquivo de formato xls para o formato xlsx
 
-3. Formatear celular  
+3. Renomear folha  
+Renomear uma folha
+
+4. Formatear celular  
 Dar formato a células
 
-4. Criar folha  
+5. Criar folha  
 Criar uma nova folha
 
-5. Excluir folha  
+6. Excluir folha  
 Excluir uma folha de pasta de trabalho
 
-6. Contar no intervalo  
+7. Contar no intervalo  
 Retorna o número máximo de linhas e colunas de uma célula
 
-7. Filtrar por coluna  
+8. Filtrar por coluna  
 Filtrar por coluna
 
-8. Excluir linha/coluna  
+9. Excluir linha/coluna  
 Comando para deletar linhas e/ou colunas
 
-9. Inserir Linha/Coluna  
-Comando para inserir linhas e/ou colunas  
+10. Inserir Linha/Coluna  
+Comando para inserir linhas e/ou colunas
+
+11. Abrir xls  
+Abra um arquivo xls para trabalhar com o comando nativo  
 
 
 

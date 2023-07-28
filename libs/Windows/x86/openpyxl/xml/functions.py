@@ -11,7 +11,7 @@ from functools import partial
 from openpyxl import DEFUSEDXML, LXML
 
 if LXML is True:
-    from r_lxml.etree import (
+    from lxml.etree import (
     Element,
     SubElement,
     register_namespace,
@@ -19,7 +19,7 @@ if LXML is True:
     xmlfile,
     XMLParser,
     )
-    from r_lxml.etree import fromstring, tostring
+    from lxml.etree import fromstring, tostring
     # do not resolve entities
     safe_parser = XMLParser(resolve_entities=False)
     fromstring = partial(fromstring, parser=safe_parser)

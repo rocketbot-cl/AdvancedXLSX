@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup, element
 from openpyxl import Workbook, worksheet
-import r_xlrd
+import xlrd
 from openpyxl.utils.cell import column_index_from_string
 from openpyxl.styles import Alignment
 import csv
@@ -55,7 +55,7 @@ class AdvancedXlsx:
     def convert_xls(self, path:str, wb, col = None)->None:
         self.wb = wb
         self.sheet = self.wb.active
-        wb = r_xlrd.open_workbook(path)
+        wb = xlrd.open_workbook(path)
         sheets = wb.sheet_names()
         
         if len(sheets) == 1:
@@ -69,7 +69,7 @@ class AdvancedXlsx:
                     for c in col:
                         c = eval(c)
                         try:
-                            row[c] = r_xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
+                            row[c] = xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
                         except:
                             print(f"Data in row {i} - col {c} is not a number.")
                 self.sheet.append(row)
@@ -87,7 +87,7 @@ class AdvancedXlsx:
                         for c in col:
                             c = eval(c)
                         try:
-                            row[c] = r_xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
+                            row[c] = xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
                         except:
                             print(f"Data in row {i} - col {c} is not a number.")
                     

@@ -36,6 +36,14 @@ Convert an xls format file to xlsx format
 |Path to XLS file |Select the XLS file you want to open|path/to/file/example.xls|
 |Path to XLSX file |Put the full path where you want to save the XLSX file (including name and '.xlsx' extension)|path/to/file/example.xlsx|
 
+### Rename sheet
+  
+Rename a sheet
+|Parameters|Description|example|
+| --- | --- | --- |
+|Sheet name to rename |Name of the sheet to rename|OldSheet|
+|New sheet name|Name of the sheet|NewSheet|
+
 ### Format cells
   
 Give format to cells
@@ -99,3 +107,12 @@ Command to insert rows or columns
 |Sheet name |Name of the sheet where the row or column will be deleted|Sheet1|
 |Row(s)|Range of rows to delete|1:5|
 |Column(s)|Range of columns to delete|A:G|
+
+### Open xls
+  
+Open a xls file to work with native command
+|Parameters|Description|example|
+| --- | --- | --- |
+|Image path |Select the image file you want to insert into the document|example.png|
+|Sheet |Name of the document sheet where to insert the image|Sheet1|
+|Cell |Cell where to insert the image|A1|

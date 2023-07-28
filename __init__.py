@@ -334,3 +334,28 @@ if module == "insert_cell":
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
         raise e
+
+if module == "renameSheet": 
+    try:
+        name = GetParams("name")
+        new_name = GetParams("new_name")
+        
+        # rename sheet with new name
+        wb[name].title = new_name
+
+    except Exception as e:
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
+
+if module == "insert_image":
+    try:
+        sheet = GetParams("sheet")
+        path = GetParams("path")
+        cell = GetParams("cell")
+        
+        advanced_xlsx.insert_image(sheet, path, cell)
+    except Exception as e:
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
