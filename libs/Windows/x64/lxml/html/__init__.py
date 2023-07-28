@@ -53,8 +53,7 @@ except ImportError:
 from .. import etree
 from . import defs
 from ._setmixin import SetMixin
-import os
-print(os.path.abspath(etree.__file__))
+
 try:
     from urlparse import urljoin
 except ImportError:

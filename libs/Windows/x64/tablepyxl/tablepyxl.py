@@ -6,8 +6,7 @@ from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
 from premailer import Premailer
 from tablepyxl.style import Table
-import os
-print(os.path.abspath(html.__file__))
+
 
 def string_to_int(s):
     if s.isdigit():
