@@ -1063,20 +1063,20 @@
     },
     {
       "en": {
-        "title": "Open xls",
-        "description": "Open a xls file to work with native command",
+        "title": "Insert image",
+        "description": "Insert an image into a document",
         "title_options": null,
         "options": null
       },
       "es": {
-        "title": "Abrir xls",
-        "description": "Abre un archivo xls para trabajar con el comando nativo",
+        "title": "Insertar imagen",
+        "description": "Insertar una imagen en un documento",
         "title_options": null,
         "options": null
       },
       "pr": {
-        "title": "Abrir xls",
-        "description": "Abra um arquivo xls para trabalhar com o comando nativo",
+        "title": "Inserir imagem",
+        "description": "Inserir uma imagem em um documento",
         "title_options": null,
         "options": null
       },
