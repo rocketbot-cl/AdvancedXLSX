@@ -36,6 +36,14 @@ Converter um arquivo de formato xls para o formato xlsx
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|path/to/file/example.xls|
 |Caminho do arquivo XLSX|Coloque o caminho completo onde deseja salvar o arquivo XLSX (incluindo nome e extensão '.xlsx')|path/to/file/example.xlsx|
 
+### Renomear folha
+  
+Renomear uma folha
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Nome da folha a ser renomeada |Nome da folha a ser renomeada|OldSheet|
+|Novo nome da folha|Nome da folha|NewSheet|
+
 ### Formatear celular
   
 Dar formato a células
@@ -99,3 +107,12 @@ Comando para inserir linhas e/ou colunas
 |Nome da folha |Nome da folha da qual a linha ou coluna será excluída|Sheet1|
 |Linha(s)|Intervalo de linhas a serem excluídas|1:5|
 |Coluna(s)|Intervalo de colunas a serem removidas|A:G|
+
+### Abrir xls
+  
+Abra um arquivo xls para trabalhar com o comando nativo
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Caminho da imagem|Selecione o arquivo de imagem que deseja inserir no documento|example.png|
+|Folha |Nome da folha de documento onde inserir a imagem|Sheet1|
+|Célula |Célula onde inserir a imagem|A1|

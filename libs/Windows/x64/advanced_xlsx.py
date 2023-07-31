@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup, element
 from openpyxl import Workbook, worksheet
-import r_xlrd
+import xlrd
 from openpyxl.utils.cell import column_index_from_string
+from openpyxl.drawing.image import Image
 from openpyxl.styles import Alignment
 from datetime import datetime, timedelta
 import csv
@@ -56,7 +57,7 @@ class AdvancedXlsx:
     def convert_xls(self, path:str, wb, col = None)->None:
         self.wb = wb
         self.sheet = self.wb.active
-        wb = r_xlrd.open_workbook(path)
+        wb = xlrd.open_workbook(path)
         sheets = wb.sheet_names()
         
         if len(sheets) == 1:
@@ -65,15 +66,20 @@ class AdvancedXlsx:
             for i in range(sheet_.nrows):
                 row = [sheet_.cell_value(rowx=i, colx=j) for j in range(sheet_.ncols)]
                 
+                row = list(map(lambda x: str(x).encode('latin-1',errors='ignore').decode() if not isinstance(x,int) and not isinstance(x,float) else x, row))
+                
                 # Format data as date for the columns given
                 if col:
                     
                     for c in col:
                         c = eval(c)
                         try:
-                            row[c] = r_xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
+                            row[c] = xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
                         except:
                             print(f"Data in row {i} - col {c} is not a number.")
+                
+                # print(eval(repr(row)))
+                print(row)
                 self.sheet.append(row)
                 self.sheet.title = sheets[0]
                 
@@ -89,7 +95,7 @@ class AdvancedXlsx:
                         for c in col:
                             c = eval(c)
                         try:
-                            row[c] = r_xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
+                            row[c] = xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
                         except:
                             print(f"Data in row {i} - col {c} is not a number.")
                     
@@ -257,3 +263,7 @@ class AdvancedXlsx:
     
     def del_sheet(self, sheet):
         self.wb.remove(sheet)
+    
+    def insert_image(self, sheet, path, cell):
+        img = Image(path)
+        self.wb[sheet].add_image(img, cell)
