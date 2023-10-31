@@ -24,32 +24,35 @@ Open a xls file to work with native command
 2. Convert xls to xlsx  
 Convert an xls format file to xlsx format
 
-3. Rename sheet  
+3. Read range  
+Returns the value of the given range. One value if the range is a cell or a list if the range has multiple cells.
+
+4. Rename sheet  
 Rename a sheet
 
-4. Format cells  
+5. Format cells  
 Give format to cells
 
-5. Create sheet  
+6. Create sheet  
 Create a new sheet
 
-6. Remove sheet  
+7. Remove sheet  
 Remove a sheet from workbook
 
-7. Count in range  
+8. Count in range  
 Returns the maximum number of rows and columns from a cell
 
-8. Column filter  
+9. Column filter  
 Filter by column
 
-9. Delete Row/Column  
+10. Delete Row/Column  
 Command to delete rows or columns
 
-10. Insert Row/Column  
+11. Insert Row/Column  
 Command to insert rows or columns
 
-11. Open xls  
-Open a xls file to work with native command  
+12. Insert image  
+Insert an image into a document  
 
 
 

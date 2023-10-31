@@ -36,6 +36,15 @@ Converter um arquivo de formato xls para o formato xlsx
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|path/to/file/example.xls|
 |Caminho do arquivo XLSX|Coloque o caminho completo onde deseja salvar o arquivo XLSX (incluindo nome e extensão '.xlsx')|path/to/file/example.xlsx|
 
+### Ler intervalo
+  
+Retorna o valor do intervalo fornecido. Um valor se o intervalo for uma célula ou uma lista se o intervalo tiver diversas células.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Nome da folha |Nome da planilha onde o intervalo está localizado|Sheet1|
+|Célula inicial|Célula ou intervalo|A1|
+|Atribuir resultado à variável (Coluna)|Nome da variável onde o comprimento da coluna será salvo|Variável|
+
 ### Renomear folha
   
 Renomear uma folha
@@ -108,9 +117,9 @@ Comando para inserir linhas e/ou colunas
 |Linha(s)|Intervalo de linhas a serem excluídas|1:5|
 |Coluna(s)|Intervalo de colunas a serem removidas|A:G|
 
-### Abrir xls
+### Inserir imagem
   
-Abra um arquivo xls para trabalhar com o comando nativo
+Inserir uma imagem em um documento
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Caminho da imagem|Selecione o arquivo de imagem que deseja inserir no documento|example.png|

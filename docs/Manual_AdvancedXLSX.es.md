@@ -36,6 +36,15 @@ Convierte un archivo formato xls a formato xlsx
 |Ruta archivo XLS |Selecciona el archivo XLS que quieres abrir|path/to/file/example.xls|
 |Ruta archivo XLSX |Coloque la ruta completa donde quiere guardar el archivo XLSX (incluyendo nombre y extensión '.xlsx')|path/to/file/example.xlsx|
 
+### Leer rango
+  
+Devuelve el valor del rango dado. Un valor si el rango es una celda o una lista si el rango tiene varias celdas.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Nombre de la hoja |Nombre de la hoja donde se encuentra el rango|Sheet1|
+|Celda o Rango|Celda de inicio del rango|A1|
+|Asignar resultado a variable (Columna)|Nombre de variable donde se guardará el largo de la columna|Variable|
+
 ### Renombrar hoja
   
 Renombrar una hoja
@@ -108,9 +117,9 @@ Comando para insertar filas y/o columnas
 |Fila(s)|Rango de filas a eliminar|1:5|
 |Columna(s)|Rango de columnas a eliminar|A:G|
 
-### Abrir xls
+### Insertar imagen
   
-Abre un archivo xls para trabajar con el comando nativo
+Insertar una imagen en un documento
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Ruta imagen |Selecciona el archivo de la imagen que quieres insertar en el documento|example.png|

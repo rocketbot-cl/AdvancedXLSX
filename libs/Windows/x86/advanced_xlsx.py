@@ -4,6 +4,7 @@ import xlrd
 from openpyxl.utils.cell import column_index_from_string
 from openpyxl.drawing.image import Image
 from openpyxl.styles import Alignment
+from datetime import datetime, timedelta
 import csv
 
 class AdvancedXlsx:
@@ -69,6 +70,7 @@ class AdvancedXlsx:
                 
                 # Format data as date for the columns given
                 if col:
+                    
                     for c in col:
                         c = eval(c)
                         try:
@@ -101,6 +103,20 @@ class AdvancedXlsx:
            
             # It deletes the default sheet, because the loop already creates one for one in the xls
             del self.wb[self.sheet.title]
+    
+    def convert_to_csv(self, path_csv: str, delimiter: str = ",")->None:
+        with open(path_csv, "w", newline="", encoding="utf-8") as f:
+            c = csv.writer(f, delimiter=delimiter)
+            for r in self.sheet.rows:
+                row = []
+                for cell in r:
+                    if isinstance(cell.value, float) and cell.value.is_integer():
+                        row.append(int(cell.value))
+                    else:
+                        row.append(cell.value)
+                c.writerow(row)
+    
+    
     
     # Deprecated after using tablepyxl library
     def get_from_html(self, soup: BeautifulSoup)->None:
@@ -251,3 +267,18 @@ class AdvancedXlsx:
     def insert_image(self, sheet, path, cell):
         img = Image(path)
         self.wb[sheet].add_image(img, cell)
+        
+    def read_range(self, sheet, range):
+        return self.wb[sheet][range]
+    
+    @staticmethod
+    def get_excel_date(date_time_str):
+        import datetime
+        
+        UTC = datetime.timezone.utc
+        dt_obj = datetime.datetime.fromisoformat(date_time_str).replace(tzinfo=UTC)
+        day_zero = datetime.datetime(1899,12,30, tzinfo=UTC)
+
+        excel_serial_date = (dt_obj-day_zero).total_seconds()/86400
+
+        return excel_serial_date

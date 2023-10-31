@@ -267,3 +267,18 @@ class AdvancedXlsx:
     def insert_image(self, sheet, path, cell):
         img = Image(path)
         self.wb[sheet].add_image(img, cell)
+        
+    def read_range(self, sheet, range):
+        return self.wb[sheet][range]
+    
+    @staticmethod
+    def get_excel_date(date_time_str):
+        import datetime
+        
+        UTC = datetime.timezone.utc
+        dt_obj = datetime.datetime.fromisoformat(date_time_str).replace(tzinfo=UTC)
+        day_zero = datetime.datetime(1899,12,30, tzinfo=UTC)
+
+        excel_serial_date = (dt_obj-day_zero).total_seconds()/86400
+
+        return excel_serial_date

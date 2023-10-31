@@ -24,32 +24,35 @@ Abre un archivo xls para trabajar con el comando nativo
 2. Convertir xls a xlsx  
 Convierte un archivo formato xls a formato xlsx
 
-3. Renombrar hoja  
+3. Leer rango  
+Devuelve el valor del rango dado. Un valor si el rango es una celda o una lista si el rango tiene varias celdas.
+
+4. Renombrar hoja  
 Renombrar una hoja
 
-4. Formatear celdas  
+5. Formatear celdas  
 Dar formato a celdas
 
-5. Crear hoja  
+6. Crear hoja  
 Crea una nueva hoja
 
-6. Borrar hoja  
+7. Borrar hoja  
 Borrar una hoja del libro
 
-7. Contar en rango  
+8. Contar en rango  
 Retorna el la máxima cantidad de filas y columnas desde una celda
 
-8. Filtrar por columna  
+9. Filtrar por columna  
 Filtrar por columna
 
-9. Eliminar Fila/Columna  
+10. Eliminar Fila/Columna  
 Comando para eliminar filas y/o columnas
 
-10. Insertar Fila/Columna  
+11. Insertar Fila/Columna  
 Comando para insertar filas y/o columnas
 
-11. Abrir xls  
-Abre un archivo xls para trabajar con el comando nativo  
+12. Insertar imagen  
+Insertar una imagen en un documento  
 
 
 

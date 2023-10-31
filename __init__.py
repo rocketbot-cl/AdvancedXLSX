@@ -30,6 +30,7 @@ import sys
 import copy
 import datetime
 import traceback
+import dateutil.parser
 
 
 base_path = tmp_global_obj["basepath"]
@@ -42,6 +43,7 @@ if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
 elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
     sys.path.append(cur_path_x86)
 
+import openpyxl
 from openpyxl.utils.cell import column_index_from_string
 from advanced_xlsx import AdvancedXlsx
 from whichOperation import whichOperation
@@ -110,6 +112,31 @@ if module == "convert_to_csv":
         print("Traceback: ", traceback.format_exc())
         PrintException()
         SetVar(result, False)
+        raise e
+
+if module == "readRange":
+    
+    sheet = GetParams("sheet_name")
+    range_ = GetParams("range")
+    var = GetParams("var")
+    
+    try:
+        
+        data = advanced_xlsx.read_range(sheet, range_)
+        
+        if not isinstance(data, tuple):
+            data = data.value.isoformat() if isinstance(data.value, datetime.datetime) or isinstance(data.value, datetime.time) else data.value
+        # data = [[x.value for x in i] for i in data if isinstance(i, tuple)]
+        try:
+            data = [[x.value.isoformat() if isinstance(x.value, datetime.datetime) or isinstance(x.value, datetime.time) else x.value for x in i] for i in data if isinstance(i, tuple)]
+        except:
+            data = [i.value.isoformat() if isinstance(i.value, datetime.datetime) or isinstance(i.value, datetime.time) else i.value for i in data if isinstance(i, tuple)]
+        SetVar(var, data)
+    
+    except Exception as e:
+        SetVar(var, False)
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
         raise e
 
 if module == "format_cell":
@@ -209,26 +236,26 @@ if module == "get_by_filter":
     advanced_xlsx.get_cells_by_range()
 
 if module == "advanceFilter": 
-    
+
     sheet = GetParams("sheetName")
-    
+
     if not sheet:
         ws = wb.active
     else:
         ws = wb.get_sheet_by_name(sheet)
-    
+
     # ws = advanced_xlsx.change_sheet(sheet)
 
     userFilters = GetParams("userFilters")
     userFilters = eval(userFilters)
-    whereToStoreResult = GetParams("whereToStoreResult")
     filtros = userFilters
+    whereToStoreResult = GetParams("whereToStoreResult")
 
     variableConTodo = []
     firstFilter = filtros[0]
     firstFilterSplited = firstFilter.split(' ')
     tipo = None
-    
+
     if (len(firstFilterSplited) == 2):
         tipo = "re"
         firstFilterSplited.append('')
@@ -239,19 +266,42 @@ if module == "advanceFilter":
         firstFilterSplited[2] = firstFilterSplited[2].replace('%', ' ')
         firstFilterSplited[2] = firstFilterSplited[2].replace('\'', '')
 
+    try:
+        # Parses numbers
+        if "/" not in firstFilterSplited[2] and "-" not in firstFilterSplited[2]:
+            firstFilterSplited[2] = eval(firstFilterSplited[2])
+        # Parses dates
+        else:
+            firstFilterSplited[2] = dateutil.parser.parse(firstFilterSplited[2], dayfirst=True).isoformat()
+            firstFilterSplited[2] = advanced_xlsx.get_excel_date(firstFilterSplited[2])
+        # Do nothing
+    except:
+        pass
+
     for index, row in enumerate (ws.iter_rows()):
         columna = column_index_from_string(firstFilterSplited[0])
         columna -= 1
-        cellValue = (row[columna].value)
+        cellValue = row[columna].value
+        
+        
+        if isinstance(cellValue, datetime.datetime):
+            row[columna].value = cellValue.isoformat()
+            cellValue = advanced_xlsx.get_excel_date(cellValue.isoformat())
+        
         if (isinstance(cellValue, str) and tipo == "common" and firstFilterSplited[1] != "=="):
-            continue
+            try:
+                # Checks if the string is a date and parses it
+                cellValue = dateutil.parser.parse(firstFilterSplited[2], dayfirst=True).isoformat()
+                cellValue = advanced_xlsx.get_excel_date(cellValue)
+            except:
+                continue
+        #This try/except is to catch the exception when cell values are "NoneType" and can't be compared with "<" or ">"
         try:
-            firstFilterSplited[2] = eval(firstFilterSplited[2])
+            if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
+                variableConTodo.append([{"row" : f"{index}", "data" : row}])
         except:
-            pass
-        if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
-            variableConTodo.append([{"row" : f"{index}", "data" : row}])
-    
+            continue
+
     count = 0
     variableConCasiTodo = []
     variableFinal = variableConTodo
@@ -272,17 +322,28 @@ if module == "advanceFilter":
                     xlRow = row[0]["data"]
                     realRow = row[0]["row"]
                     cellValue = xlRow[columna].value
-                    if (isinstance(cellValue, str) and tipo == "common" and filtroSplited[1] != "=="):
-                        continue
+                    
+                    if isinstance(cellValue, datetime.datetime):
+                        row[columna].value = cellValue.isoformat()
+                        cellValue = advanced_xlsx.get_excel_date(cellValue.isoformat())
+                    
+                    if (isinstance(cellValue, str) and tipo == "common" and firstFilterSplited[1] != "=="):
+                        try:
+                            # Checks if the string is a date and parses it
+                            cellValue = dateutil.parser.parse(firstFilterSplited[2], dayfirst=True).isoformat()
+                            cellValue = advanced_xlsx.get_excel_date(cellValue)
+                        except:
+                            continue
+                    #This try/except is to catch the exception when cell values are "NoneType" and can't be compared with "<" or ">"
                     try:
-                        filtroSplited[2] = eval(filtroSplited[2])
+                        if (whichOperation(cellValue, filtroSplited[1], filtroSplited[2], tipo)):
+                            variableConCasiTodo.append([{"row": f"{realRow}", "data" : xlRow}])
                     except:
-                        pass
-                    if (whichOperation(cellValue, filtroSplited[1], filtroSplited[2], tipo)):
-                        variableConCasiTodo.append([{"row": f"{realRow}", "data" : xlRow}])
+                        continue
+                    
                 variableFinal = variableConCasiTodo
                 variableConCasiTodo = []
-    
+
     rowFake = None
     provisionaryArray = []
     variableSinDetail = []
