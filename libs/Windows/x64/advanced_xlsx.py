@@ -54,14 +54,14 @@ class AdvancedXlsx:
             return self.wb
 
         
-    def convert_xls(self, path:str, wb, col = None)->None:
+    def convert_xls(self, path:str, wb, col = None):
         self.wb = wb
         self.sheet = self.wb.active
-        wb = xlrd.open_workbook(path)
-        sheets = wb.sheet_names()
+        wb_ = xlrd.open_workbook(path)
+        sheets = wb_.sheet_names()
         
         if len(sheets) == 1:
-            sheet_ = wb.sheet_by_name(sheets[0])
+            sheet_ = wb_.sheet_by_name(sheets[0])
             
             for i in range(sheet_.nrows):
                 row = [sheet_.cell_value(rowx=i, colx=j) for j in range(sheet_.ncols)]
@@ -77,16 +77,14 @@ class AdvancedXlsx:
                             row[c] = xlrd.xldate_as_datetime(row[c], 0).date().strftime("%d-%m-%Y")
                         except:
                             print(f"Data in row {i} - col {c} is not a number.")
-                
-                # print(eval(repr(row)))
-                print(row)
+                            
                 self.sheet.append(row)
                 self.sheet.title = sheets[0]
                 
         if len(sheets) > 1:
             for sheet in sheets:
                 self.wb.create_sheet(sheet)
-                sheet_ = wb.sheet_by_name(sheet)
+                sheet_ = wb_.sheet_by_name(sheet)
                 for i in range(sheet_.nrows):
                     row = [sheet_.cell_value(rowx=i, colx=j) for j in range(sheet_.ncols)]
                     
@@ -104,13 +102,16 @@ class AdvancedXlsx:
             # It deletes the default sheet, because the loop already creates one for one in the xls
             del self.wb[self.sheet.title]
     
-    def convert_to_csv(self, path_csv: str, delimiter: str = ",")->None:
+    def convert_to_csv(self, path_csv: str, date_format: str, delimiter: str = ",")->None:
         with open(path_csv, "w", newline="", encoding="utf-8") as f:
             c = csv.writer(f, delimiter=delimiter)
             for r in self.sheet.rows:
                 row = []
                 for cell in r:
-                    if isinstance(cell.value, float) and cell.value.is_integer():
+                    if isinstance(cell.value, datetime):
+                        formatted_date = cell.value.strftime(date_format)
+                        row.append(formatted_date)
+                    elif isinstance(cell.value, float) and cell.value.is_integer():
                         row.append(int(cell.value))
                     else:
                         row.append(cell.value)

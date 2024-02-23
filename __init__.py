@@ -103,10 +103,11 @@ if module == "convert_to_csv":
     csv_path = GetParams("csv_path")
     delimiter = GetParams("delimiter") or ","
     result = GetParams("var_")
+    date_format = GetParams("date_format")
     
     try:
         
-        advanced_xlsx.convert_to_csv(csv_path, delimiter)
+        advanced_xlsx.convert_to_csv(csv_path, date_format, delimiter)
         SetVar(result, True)
     except Exception as e:
         print("Traceback: ", traceback.format_exc())
@@ -245,7 +246,6 @@ if module == "advanceFilter":
         ws = wb.get_sheet_by_name(sheet)
 
     # ws = advanced_xlsx.change_sheet(sheet)
-
     userFilters = GetParams("userFilters")
     userFilters = eval(userFilters)
     filtros = userFilters
@@ -282,7 +282,6 @@ if module == "advanceFilter":
         columna = column_index_from_string(firstFilterSplited[0])
         columna -= 1
         cellValue = row[columna].value
-        
         
         if isinstance(cellValue, datetime.datetime):
             row[columna].value = cellValue.isoformat()
