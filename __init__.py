@@ -103,11 +103,10 @@ if module == "convert_to_csv":
     csv_path = GetParams("csv_path")
     delimiter = GetParams("delimiter") or ","
     result = GetParams("var_")
-    date_format = GetParams("date_format")
     
     try:
         
-        advanced_xlsx.convert_to_csv(csv_path, date_format, delimiter)
+        advanced_xlsx.convert_to_csv(csv_path, delimiter)
         SetVar(result, True)
     except Exception as e:
         print("Traceback: ", traceback.format_exc())

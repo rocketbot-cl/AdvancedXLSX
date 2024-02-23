@@ -283,31 +283,6 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "%d/%m/%Y",
-              "en": "%d/%m/%Y",
-              "pr": "%d/%m/%Y"
-            },
-            "title": {
-              "es": "Formato de salida de Fechas:",
-              "en": "Date output format:",
-              "pr": "Formato de saída de data:"
-            },
-            "help": {
-              "es": "Formatos fecha permitidos: https://www.w3schools.com/python/python_datetime.asp",
-              "en": "Allowed date formats: https://www.w3schools.com/python/python_datetime.asp",
-              "pr": "Formatos de data permitidos: https://www.w3schools.com/python/python_datetime.asp"
-            },
-            "description": {
-              "es": "Formato con el que se van a convertir las fechas de la Hoja xlsx a csv",
-              "en": "Format with which the dates of the xlsx Sheet will be converted to csv",
-              "pr": "Formato com o qual as datas da planilha xlsx serão convertidas para csv"
-            },
-            "id": "date_format",
-            "css": "col-md-6"
-          },
-          {
-            "type": "input",
-            "placeholder": {
               "es": "Variable",
               "en": "Variable",
               "pr": "Variável"

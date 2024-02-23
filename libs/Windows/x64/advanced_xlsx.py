@@ -102,16 +102,13 @@ class AdvancedXlsx:
             # It deletes the default sheet, because the loop already creates one for one in the xls
             del self.wb[self.sheet.title]
     
-    def convert_to_csv(self, path_csv: str, date_format: str, delimiter: str = ",")->None:
+    def convert_to_csv(self, path_csv: str, delimiter: str = ",")->None:
         with open(path_csv, "w", newline="", encoding="utf-8") as f:
             c = csv.writer(f, delimiter=delimiter)
             for r in self.sheet.rows:
                 row = []
                 for cell in r:
-                    if isinstance(cell.value, datetime):
-                        formatted_date = cell.value.strftime(date_format)
-                        row.append(formatted_date)
-                    elif isinstance(cell.value, float) and cell.value.is_integer():
+                    if isinstance(cell.value, float) and cell.value.is_integer():
                         row.append(int(cell.value))
                     else:
                         row.append(cell.value)
