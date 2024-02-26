@@ -6,9 +6,9 @@
   
 Format cells, create and remove sheets, filter data, add and delete columns and rows, open xls files and transform them into xlsx format.  
 
-*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
   
 ![banner](imgs/Banner_AdvancedXLSX.png)
+
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
@@ -35,6 +35,16 @@ Convert an xls format file to xlsx format
 | --- | --- | --- |
 |Path to XLS file |Select the XLS file you want to open|path/to/file/example.xls|
 |Path to XLSX file |Put the full path where you want to save the XLSX file (including name and '.xlsx' extension)|path/to/file/example.xlsx|
+
+### Convert sheet to csv
+  
+Convert a sheet of the opened xlsx file to csv
+|Parameters|Description|example|
+| --- | --- | --- |
+|Path to CSV file |Select the CSV file you want to open|path/to/file/example.csv|
+|Delimiter|Delimiter of the csv file|,|
+|Date output format|Format with which the dates of the xlsx Sheet will be converted to csv|%d/%m/%Y|
+|Assign result to variable |Name of the variable where the result will be stored|Variable|
 
 ### Read range
   

@@ -6,7 +6,6 @@
   
 Da formato a celdas, crea y remueve hojas, filtra datos, agrega y elimina columnas y filas, abre archivos xls y transformalos a formato xlsx.  
 
-*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
   
 ![banner](imgs/Banner_AdvancedXLSX.png)
 ## Como instalar este módulo
@@ -35,6 +34,16 @@ Convierte un archivo formato xls a formato xlsx
 | --- | --- | --- |
 |Ruta archivo XLS |Selecciona el archivo XLS que quieres abrir|path/to/file/example.xls|
 |Ruta archivo XLSX |Coloque la ruta completa donde quiere guardar el archivo XLSX (incluyendo nombre y extensión '.xlsx')|path/to/file/example.xlsx|
+
+### Convertir hoja a csv
+  
+Convierte una hoja del archivo xlsx abierto a csv
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Ruta archivo CSV |Selecciona el archivo CSV que quieres abrir|path/to/file/example.csv|
+|Delimitador|Separador del archivo csv|,|
+|Formato de salida de Fechas|Formato con el que se van a convertir las fechas de la Hoja xlsx a csv|%d/%m/%Y|
+|Asignar resultado a variable|Nombre de la variable donde guardar el resultado|Variable|
 
 ### Leer rango
   

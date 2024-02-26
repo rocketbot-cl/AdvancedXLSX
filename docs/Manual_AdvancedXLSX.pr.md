@@ -6,7 +6,6 @@
   
 Formate células, crie e remova planilhas, filtre dados, adicione e exclua colunas e linhas, abra arquivos xls e transforme-os no formato xlsx.  
 
-*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
   
 ![banner](imgs/Banner_AdvancedXLSX.png)
 ## Como instalar este módulo
@@ -35,6 +34,16 @@ Converter um arquivo de formato xls para o formato xlsx
 | --- | --- | --- |
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|path/to/file/example.xls|
 |Caminho do arquivo XLSX|Coloque o caminho completo onde deseja salvar o arquivo XLSX (incluindo nome e extensão '.xlsx')|path/to/file/example.xlsx|
+
+### Converter planilha em csv
+  
+Converta uma planilha do arquivo xlsx aberto em csv
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Caminho do arquivo CSV|Selecione o arquivo CSV que deseja abrir|path/to/file/example.csv|
+|Delimitador|Delimitador da arquivo csv|,|
+|Formato de saída de data|Formato com o qual as datas da planilha xlsx serão convertidas para csv|%d/%m/%Y|
+|Atribuir resultado a variável |Nome da variável para armazenar o resultado|Variável|
 
 ### Ler intervalo
   
