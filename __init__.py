@@ -106,7 +106,7 @@ if module == "convert_to_csv":
     date_format = GetParams("date_format")
     
     try:
-        advanced_xlsx = AdvancedXlsx()
+        
         advanced_xlsx.convert_to_csv(csv_path, date_format, delimiter)
         SetVar(result, True)
     except Exception as e:
