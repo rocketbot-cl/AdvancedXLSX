@@ -104,7 +104,7 @@ Returns the maximum number of rows and columns from a cell
 Filter by column
 |Parameters|Description|example|
 | --- | --- | --- |
-|Filters |Filters to apply.|["A > 3", "D *ARS", "C == Invoice"]|
+|Filters |Filters to apply. For empty filters use == None|["A > 3", "D *ARS", "C == Invoice"]|
 |Sheet's name |Sheet's name to filter.|Sheet1|
 |Detailed result|Mark to get detailed result.|True|
 |Assign result to variable||Variable|

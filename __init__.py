@@ -282,7 +282,7 @@ if module == "advanceFilter":
         columna = column_index_from_string(firstFilterSplited[0])
         columna -= 1
         cellValue = row[columna].value
-        
+
         if isinstance(cellValue, datetime.datetime):
             row[columna].value = cellValue.isoformat()
             cellValue = advanced_xlsx.get_excel_date(cellValue.isoformat())
@@ -294,13 +294,21 @@ if module == "advanceFilter":
                 cellValue = advanced_xlsx.get_excel_date(cellValue)
             except:
                 continue
+        
+        if firstFilterSplited[1] == "==":
+            if firstFilterSplited[2] == "" and (cellValue is None or cellValue == ""):
+                variableConTodo.append([{"row": f"{index}", "data" : row}])
+            elif whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo):
+                variableConTodo.append([{"row": f"{index}", "data" : row}])
+
         #This try/except is to catch the exception when cell values are "NoneType" and can't be compared with "<" or ">"
         try:
-            if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
-                variableConTodo.append([{"row" : f"{index}", "data" : row}])
+            if not "None" in userFilters[0]:
+                if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
+                    variableConTodo.append([{"row" : f"{index}", "data" : row}])
         except:
             continue
-
+    
     count = 0
     variableConCasiTodo = []
     variableFinal = variableConTodo
@@ -333,6 +341,7 @@ if module == "advanceFilter":
                             cellValue = advanced_xlsx.get_excel_date(cellValue)
                         except:
                             continue
+                    
                     #This try/except is to catch the exception when cell values are "NoneType" and can't be compared with "<" or ">"
                     try:
                         if (whichOperation(cellValue, filtroSplited[1], filtroSplited[2], tipo)):
