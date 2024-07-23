@@ -103,7 +103,7 @@ Retorna o número máximo de linhas e colunas de uma célula
 Filtrar por coluna
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
-|Filtros|Filtros a aplicar.|["A > 3", "D *ARS", "C == Invoice"]|
+|Filtros|Filtros a aplicar. Para filtrar por vazio usar == None|["A > 3", "D *ARS", "C == Invoice"]|
 |Nome da folha|Nome da folha a filtrar|Sheet1|
 |Resultado detalhado|Verifique para obter o resultado detalhado|True|
 |Atribuir resultado à variável||Variável|

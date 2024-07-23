@@ -103,7 +103,7 @@ Retorna el la máxima cantidad de filas y columnas desde una celda
 Filtrar por columna
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Filtros |Filtros a aplicar.|["A > 3", "D *ARS", "C == Factura"]|
+|Filtros |Filtros a aplicar. Para filtrar por vacíos indicar == None|["A > 3", "D *ARS", "C == Factura"]|
 |Nombre de la hoja |Nombre de la hoja a filtrar.|Sheet1|
 |Resultado detallado|Marcar para obtener resultado detallado.|True|
 |Asignar resultado a variable||Variable|
