@@ -87,6 +87,46 @@ if module == "open_xls":
         SetVar(var_, False)
         PrintException()
 
+if module == "open_xlsx_advanced":
+    path = GetParams("path")
+    id_ = GetParams("id")
+    var_ = GetParams("var_")
+    try:
+        read_only = eval(GetParams("read_only")) if GetParams("read_only") else False
+        keep_vba = eval(GetParams("keep_vba")) if GetParams("keep_vba") else False
+        data_only = eval(GetParams("data_only")) if GetParams("data_only") else False
+        keep_links = eval(GetParams("keep_links")) if GetParams("keep_links") else False
+        rich_text = eval(GetParams("rich_text")) if GetParams("rich_text") else False
+    except Exception as e:
+        print(f"Error evaluating parameters: {e}")
+        read_only = False
+        keep_vba = False
+        data_only = False
+        keep_links = False
+        rich_text = False
+    
+    if not id_:
+        id_ = "default"
+    
+    try:
+        advanced_xlsx = AdvancedXlsx()
+
+        wb = advanced_xlsx.open_xlsx(path, read_only=False, keep_vba=False,
+                                   data_only=False, keep_links=False)
+        
+        excel.actual_id = id_
+        excel.file_[excel.actual_id]= {
+            "workbook": wb,
+            "sheet": wb.active
+        }
+
+        SetVar(var_, True)
+
+    except Exception as e:
+        print("Traceback: ", traceback.format_exc())
+        SetVar(var_, False)
+        PrintException()
+
 if module == "xls_to_xlsx":
     xls_path = GetParams("xls_path")
     xlsx_path = GetParams("xlsx_path")

@@ -6,6 +6,7 @@
   
 Da formato a celdas, crea y remueve hojas, filtra datos, agrega y elimina columnas y filas, abre archivos xls y transformalos a formato xlsx.  
 
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
@@ -20,40 +21,43 @@ Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
 1. Abrir xls  
 Abre un archivo xls para trabajar con el comando nativo
 
-2. Convertir xls a xlsx  
+2. Abrir xlsx  
+Abre un archivo xlsx para trabajar con el comando nativo
+
+3. Convertir xls a xlsx  
 Convierte un archivo formato xls a formato xlsx
 
-3. Convertir hoja a csv  
+4. Convertir hoja a csv  
 Convierte una hoja del archivo xlsx abierto a csv
 
-4. Leer rango  
+5. Leer rango  
 Devuelve el valor del rango dado. Un valor si el rango es una celda o una lista si el rango tiene varias celdas.
 
-5. Renombrar hoja  
+6. Renombrar hoja  
 Renombrar una hoja
 
-6. Formatear celdas  
+7. Formatear celdas  
 Dar formato a celdas
 
-7. Crear hoja  
+8. Crear hoja  
 Crea una nueva hoja
 
-8. Borrar hoja  
+9. Borrar hoja  
 Borrar una hoja del libro
 
-9. Contar en rango  
+10. Contar en rango  
 Retorna el la máxima cantidad de filas y columnas desde una celda
 
-10. Filtrar por columna  
+11. Filtrar por columna  
 Filtrar por columna
 
-11. Eliminar Fila/Columna  
+12. Eliminar Fila/Columna  
 Comando para eliminar filas y/o columnas
 
-12. Insertar Fila/Columna  
+13. Insertar Fila/Columna  
 Comando para insertar filas y/o columnas
 
-13. Insertar imagen  
+14. Insertar imagen  
 Insertar una imagen en un documento  
 
 

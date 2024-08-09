@@ -6,9 +6,9 @@
   
 Format cells, create and remove sheets, filter data, add and delete columns and rows, open xls files and transform them into xlsx format.  
 
+*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
   
 ![banner](imgs/Banner_AdvancedXLSX.png)
-
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
@@ -25,6 +25,19 @@ Open a xls file to work with native command
 | --- | --- | --- |
 |Path to XLS file |Select the XLS file you want to open|example.xls|
 |Column/s as date (optional) ||0|
+|Id (optional) |Session identifier|id|
+|Assign result to variable||Variable|
+
+### Open xlsx
+  
+Open a xlsx file to work with native command
+|Parameters|Description|example|
+| --- | --- | --- |
+|Path to XLSX file |Select the XLSX file you want to open|example.xlsx|
+|Read only|Check if you want to open the xlsx in read only mode, the content cannot be edited.|False|
+|Keep vba|Check to keep the possible VBA code that could be in the workbook.|False|
+|Data only|Controls if cells with formulas have the formula (default) or the value stored the|False|
+|Keep links|Check if links to external workbooks should be kept.|False|
 |Id (optional) |Session identifier|id|
 |Assign result to variable||Variable|
 

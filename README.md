@@ -6,6 +6,8 @@
   
 Format cells, create and remove sheets, filter data, add and delete columns and rows, open xls files and transform them into xlsx format.  
 
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
+
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
@@ -19,40 +21,43 @@ To install the module in Rocketbot Studio, it can be done in two ways:
 1. Open xls  
 Open a xls file to work with native command
 
-2. Convert xls to xlsx  
+2. Open xlsx  
+Open a xlsx file to work with native command
+
+3. Convert xls to xlsx  
 Convert an xls format file to xlsx format
 
-3. Convert sheet to csv  
+4. Convert sheet to csv  
 Convert a sheet of the opened xlsx file to csv
 
-4. Read range  
+5. Read range  
 Returns the value of the given range. One value if the range is a cell or a list if the range has multiple cells.
 
-5. Rename sheet  
+6. Rename sheet  
 Rename a sheet
 
-6. Format cells  
+7. Format cells  
 Give format to cells
 
-7. Create sheet  
+8. Create sheet  
 Create a new sheet
 
-8. Remove sheet  
+9. Remove sheet  
 Remove a sheet from workbook
 
-9. Count in range  
+10. Count in range  
 Returns the maximum number of rows and columns from a cell
 
-10. Column filter  
+11. Column filter  
 Filter by column
 
-11. Delete Row/Column  
+12. Delete Row/Column  
 Command to delete rows or columns
 
-12. Insert Row/Column  
+13. Insert Row/Column  
 Command to insert rows or columns
 
-13. Insert image  
+14. Insert image  
 Insert an image into a document  
 
 
