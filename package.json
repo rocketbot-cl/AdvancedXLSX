@@ -147,19 +147,19 @@
     },
     {
       "en": {
-        "title": "Open xlsx",
+        "title": "Open advanced xlsx",
         "description": "Open a xlsx file to work with native command",
         "title_options": null,
         "options": null
       },
       "es": {
-        "title": "Abrir xlsx",
+        "title": "Abrir xlsx avanzado",
         "description": "Abre un archivo xlsx para trabajar con el comando nativo",
         "title_options": null,
         "options": null
       },
       "pr": {
-        "title": "Abrir xlsx",
+        "title": "Abrir xlsx avançado",
         "description": "Abra um arquivo xlsx para trabalhar com o comando nativo",
         "title_options": null,
         "options": null
