@@ -6,6 +6,7 @@
   
 Formate células, crie e remova planilhas, filtre dados, adicione e exclua colunas e linhas, abra arquivos xls e transforme-os no formato xlsx.  
 
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## Como instalar este módulo
   
@@ -20,40 +21,43 @@ Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
 1. Abrir xls  
 Abra um arquivo xls para trabalhar com o comando nativo
 
-2. Converter xls para xlsx  
+2. Abrir xlsx  
+Abra um arquivo xlsx para trabalhar com o comando nativo
+
+3. Converter xls para xlsx  
 Converter um arquivo de formato xls para o formato xlsx
 
-3. Converter planilha em csv  
+4. Converter planilha em csv  
 Converta uma planilha do arquivo xlsx aberto em csv
 
-4. Ler intervalo  
+5. Ler intervalo  
 Retorna o valor do intervalo fornecido. Um valor se o intervalo for uma célula ou uma lista se o intervalo tiver diversas células.
 
-5. Renomear folha  
+6. Renomear folha  
 Renomear uma folha
 
-6. Formatear celular  
+7. Formatear celular  
 Dar formato a células
 
-7. Criar folha  
+8. Criar folha  
 Criar uma nova folha
 
-8. Excluir folha  
+9. Excluir folha  
 Excluir uma folha de pasta de trabalho
 
-9. Contar no intervalo  
+10. Contar no intervalo  
 Retorna o número máximo de linhas e colunas de uma célula
 
-10. Filtrar por coluna  
+11. Filtrar por coluna  
 Filtrar por coluna
 
-11. Excluir linha/coluna  
+12. Excluir linha/coluna  
 Comando para deletar linhas e/ou colunas
 
-12. Inserir Linha/Coluna  
+13. Inserir Linha/Coluna  
 Comando para inserir linhas e/ou colunas
 
-13. Inserir imagem  
+14. Inserir imagem  
 Inserir uma imagem em um documento  
 
 

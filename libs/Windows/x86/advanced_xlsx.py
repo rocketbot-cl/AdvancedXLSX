@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup, element
-from openpyxl import Workbook, worksheet
+from openpyxl import Workbook, worksheet, load_workbook
 import xlrd
 from openpyxl.utils.cell import column_index_from_string
 from openpyxl.drawing.image import Image
@@ -53,7 +53,15 @@ class AdvancedXlsx:
             self.convert_xls(path, Workbook(), col)
             return self.wb
 
+    def open_xlsx(self, file_path, read_only=False, keep_vba=False,
+                                   data_only=False, keep_links=False):
         
+        # self.file_[self.actual_id] ={} 
+        self.wb = load_workbook(file_path, read_only=read_only, keep_vba=keep_vba,
+                                data_only=data_only, keep_links=keep_links)
+        # self.file_[self.actual_id]['sheet'] = self.file_[self.actual_id]['workbook'].worksheets[0]
+        return self.wb
+    
     def convert_xls(self, path:str, wb, col = None)->None:
         self.wb = wb
         self.sheet = self.wb.active

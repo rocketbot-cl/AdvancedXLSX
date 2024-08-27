@@ -6,6 +6,7 @@
   
 Da formato a celdas, crea y remueve hojas, filtra datos, agrega y elimina columnas y filas, abre archivos xls y transformalos a formato xlsx.  
 
+*Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
   
 ![banner](imgs/Banner_AdvancedXLSX.png)
 ## Como instalar este módulo
@@ -24,6 +25,19 @@ Abre un archivo xls para trabajar con el comando nativo
 | --- | --- | --- |
 |Ruta archivo XLS |Selecciona el archivo XLS que quieres abrir|example.xls|
 |Columna/as como fecha (opcional) ||0|
+|Id (opcional) |Identificador de sesión|id|
+|Asignar resultado a variable||Variable|
+
+### Abrir xlsx
+  
+Abre un archivo xlsx para trabajar con el comando nativo
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Ruta archivo XLSX |Selecciona el archivo XLSX que quieres abrir|example.xlsx|
+|Solo lectura|Marque si desea abrir el xlsx solo para lectura, el contenido no se podrá editar.|False|
+|Conservar vba|Marcar para conservar el posible codigo VBA que pudiera tener el libro.|False|
+|Solo data|Controla si las celdas con fórmulas tienen la fórmula (predeterminado) o el valor almacenado la última vez que Excel leyó la hoja.|False|
+|Conservar links|Marcar si se deben conservar los enlaces a libros de trabajo externos.|False|
 |Id (opcional) |Identificador de sesión|id|
 |Asignar resultado a variable||Variable|
 
