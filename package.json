@@ -7,7 +7,7 @@
     "pr": "Formate células, crie e remova planilhas, filtre dados, adicione e exclua colunas e linhas, abra arquivos xls e transforme-os no formato xlsx."
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "5.10.1",
+  "version": "5.10.2",
   "license": "MIT",
   "homepage": "http://rocketbot.com/",
   "linux": true,
@@ -109,6 +109,40 @@
             "id": "id",
             "css": "col-md-6"
           },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "latin-1",
+              "en": "latin-1",
+              "pr": "latin-1"
+            },
+            "title": {
+              "es": "Encoding",
+              "en": "Encoding",
+              "pr": "Encoding"
+            },
+            "description": {
+              "es": "Tipo de Encoding a aplicar. Por defecto latin-1",
+              "en": "Type of Encoding to apply. Default Latin-1",
+              "pr": "Tipo de Encoding a aplicar. Por padrão latin-1"
+            },            
+            "options": [
+              {
+                "title": "---- Select ----",
+                "value": ""
+              },
+              {
+                "title": "latin-1",
+                "value": "latin-1"
+              },
+              {
+                "title": "utf-8",
+                "value": "utf-8"
+              }
+            ],
+            "id": "encode",
+            "css": "col-md-6"
+          },          
           {
             "type": "input",
             "placeholder": {
@@ -384,6 +418,40 @@
             },
             "id": "xlsx_path",
             "css": "col-md-12"
+          },
+          {
+            "type": "select",
+            "placeholder": {
+              "es": "latin-1",
+              "en": "latin-1",
+              "pr": "latin-1"
+            },
+            "title": {
+              "es": "Encoding",
+              "en": "Encoding",
+              "pr": "Encoding"
+            },
+            "description": {
+              "es": "Tipo de Encoding a aplicar. Por defecto latin-1",
+              "en": "Type of Encoding to apply. Default Latin-1",
+              "pr": "Tipo de Encoding a aplicar. Por padrão latin-1"
+            },            
+            "options": [
+              {
+                "title": "---- Select ----",
+                "value": ""
+              },
+              {
+                "title": "latin-1",
+                "value": "latin-1"
+              },
+              {
+                "title": "utf-8",
+                "value": "utf-8"
+              }
+            ],
+            "id": "Encoding",
+            "css": "col-md-6"
           }
         ]
       },

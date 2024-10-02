@@ -26,9 +26,10 @@ Abra um arquivo xls para trabalhar com o comando nativo
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|example.xls|
 |Coluna/as como data (opcional)||0|
 |Id (optional) |Identificador de sessão|id|
+|Encoding|Tipo de Encoding a aplicar. Por padrão latin-1|latin-1|
 |Atribuir resultado à variável||Variável|
 
-### Abrir xlsx
+### Abrir xlsx avançado
   
 Abra um arquivo xlsx para trabalhar com o comando nativo
 |Parâmetros|Descrição|exemplo|
@@ -48,6 +49,7 @@ Converter um arquivo de formato xls para o formato xlsx
 | --- | --- | --- |
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|path/to/file/example.xls|
 |Caminho do arquivo XLSX|Coloque o caminho completo onde deseja salvar o arquivo XLSX (incluindo nome e extensão '.xlsx')|path/to/file/example.xlsx|
+|Encoding|Tipo de Encoding a aplicar. Por padrão latin-1|latin-1|
 
 ### Converter planilha em csv
   
