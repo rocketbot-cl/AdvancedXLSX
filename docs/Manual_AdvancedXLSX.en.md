@@ -15,6 +15,15 @@ To install the module in Rocketbot Studio, it can be done in two ways:
 1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
 2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
+## How to use this module
+Only if you are using the 2023 version of Rocketbot should you follow the following steps to avoid the error:
+
+   ImportError: cannot import name 'etree' from 'lxml'
+
+1. You should go to the root folder of Rocketbot and verify that the 'lxml' library exists.
+2. If it does not exist, from a terminal, go to the root folder of Rocketbot and type:  pip install lxml -t .
+3. Please note that you should install the library with Python 3.10 64-bit.
+
 
 ## Description of the commands
 
