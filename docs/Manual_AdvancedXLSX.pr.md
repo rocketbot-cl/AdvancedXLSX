@@ -15,6 +15,14 @@ Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
 1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
 2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
+## Como usar este módulo
+Apenas se você estiver utilizando a versão 2023 do Rocketbot, siga os passos abaixo para evitar o erro:
+
+   ImportError: cannot import name 'etree' from 'lxml'
+
+1. Dirija-se à pasta raiz do Rocketbot e verifique se a biblioteca 'lxml' existe.
+2. Caso não exista, a partir de um terminal, vá para a pasta raiz do Rocketbot e digite:  pip install lxml -t .
+3. Leve em consideração que você deve instalar a biblioteca com o Python 3.10 de 64 bits.
 
 ## Descrição do comando
 
@@ -26,9 +34,10 @@ Abra um arquivo xls para trabalhar com o comando nativo
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|example.xls|
 |Coluna/as como data (opcional)||0|
 |Id (optional) |Identificador de sessão|id|
+|Encoding|Tipo de Encoding a aplicar. Por padrão latin-1|latin-1|
 |Atribuir resultado à variável||Variável|
 
-### Abrir xlsx
+### Abrir xlsx avançado
   
 Abra um arquivo xlsx para trabalhar com o comando nativo
 |Parâmetros|Descrição|exemplo|
@@ -48,6 +57,7 @@ Converter um arquivo de formato xls para o formato xlsx
 | --- | --- | --- |
 |Caminho do arquivo XLS|Selecione o arquivo XLS que deseja abrir|path/to/file/example.xls|
 |Caminho do arquivo XLSX|Coloque o caminho completo onde deseja salvar o arquivo XLSX (incluindo nome e extensão '.xlsx')|path/to/file/example.xlsx|
+|Encoding|Tipo de Encoding a aplicar. Por padrão latin-1|latin-1|
 
 ### Converter planilha em csv
   

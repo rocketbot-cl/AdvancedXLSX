@@ -21,7 +21,7 @@ Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
 1. Abrir xls  
 Abre un archivo xls para trabajar con el comando nativo
 
-2. Abrir xlsx  
+2. Abrir xlsx avanzado  
 Abre un archivo xlsx para trabajar con el comando nativo
 
 3. Convertir xls a xlsx  

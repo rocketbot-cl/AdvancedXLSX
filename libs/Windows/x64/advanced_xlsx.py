@@ -15,7 +15,7 @@ class AdvancedXlsx:
            sheet = self.wb.active
         self.sheet = sheet
 
-    def open_xls(self, path: str, col = None)->Workbook:
+    def open_xls(self, path: str, col = None, encode="latin-1")->Workbook:
         
         from tablepyxl import tablepyxl
         
@@ -33,7 +33,7 @@ class AdvancedXlsx:
 
         try:
             # open html, checks that there is a table in it and convert to xlsx with tablepyxl 
-            with open(path, "r", encoding="latin-1") as f:
+            with open(path, "r", encoding=encode) as f:
                 table = f.read()
                 soup = BeautifulSoup(table, 'html.parser')
                 if soup.find_all("table"):
@@ -41,7 +41,7 @@ class AdvancedXlsx:
                     return self.wb
                 
             # open csv and convert to xlsx with openpyxl    
-            with open(path, "r", encoding="latin-1") as f:
+            with open(path, "r", encoding=encode) as f:
                 reader = csv.reader(f, delimiter="\t")
                 if reader:            
                     self.wb = Workbook()
@@ -50,7 +50,7 @@ class AdvancedXlsx:
                         ws.append(row)
                     return self.wb
         except:
-            self.convert_xls(path, Workbook(), col)
+            self.convert_xls(path, Workbook(), col, encode)
             return self.wb
 
     def open_xlsx(self, file_path, read_only=False, keep_vba=False,
@@ -62,7 +62,7 @@ class AdvancedXlsx:
         # self.file_[self.actual_id]['sheet'] = self.file_[self.actual_id]['workbook'].worksheets[0]
         return self.wb
             
-    def convert_xls(self, path:str, wb, col = None):
+    def convert_xls(self, path:str, wb, col = None, encode="latin-1"):
         self.wb = wb
         self.sheet = self.wb.active
         wb_ = xlrd.open_workbook(path)
@@ -74,7 +74,7 @@ class AdvancedXlsx:
             for i in range(sheet_.nrows):
                 row = [sheet_.cell_value(rowx=i, colx=j) for j in range(sheet_.ncols)]
                 
-                row = list(map(lambda x: str(x).encode('latin-1',errors='ignore').decode() if not isinstance(x,int) and not isinstance(x,float) else x, row))
+                row = list(map(lambda x: str(x).encode(encode, errors='ignore').decode(encode) if not isinstance(x,int) and not isinstance(x,float) else x, row))
                 
                 # Format data as date for the columns given
                 if col:
@@ -87,7 +87,10 @@ class AdvancedXlsx:
                             print(f"Data in row {i} - col {c} is not a number.")
                             
                 self.sheet.append(row)
-                self.sheet.title = sheets[0]
+                if sheets == ['']:
+                    self.sheet.title = "Sheet1"
+                else:
+                    self.sheet.title = sheets[0]
                 
         if len(sheets) > 1:
             for sheet in sheets:

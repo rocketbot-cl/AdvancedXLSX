@@ -66,16 +66,21 @@ if module == "open_xls":
     id_ = GetParams("id")
     var_ = GetParams("var_")
     col = GetParams("col")
+    encode = GetParams("encode")
     
     if col:
         col = col.split(",")
     
     if not id_:
         id_ = "default"
-    
+
+
     try:
         advanced_xlsx = AdvancedXlsx()
-        wb = advanced_xlsx.open_xls(path, col)
+        if (encode == None):
+            wb = advanced_xlsx.open_xls(path, col)
+        else:
+            wb = advanced_xlsx.open_xls(path, col, encode)
         excel.actual_id = id_
         excel.file_[excel.actual_id]= {
             "workbook": wb,
@@ -130,9 +135,15 @@ if module == "open_xlsx_advanced":
 if module == "xls_to_xlsx":
     xls_path = GetParams("xls_path")
     xlsx_path = GetParams("xlsx_path")
+    encode = GetParams("encoding")
+    #if (encode == None):
+        #encode = "latin-1"
     try:
-        advanced_xlsx = AdvancedXlsx()       
-        wb = advanced_xlsx.open_xls(xls_path)
+        advanced_xlsx = AdvancedXlsx()
+        if (encode == None): 
+            wb = advanced_xlsx.open_xls(xls_path)
+        else:
+            wb = advanced_xlsx.open_xls(xls_path, None, encode)
         wb.save(filename=xlsx_path)
     except Exception as e:
         print("Traceback: ", traceback.format_exc())
@@ -164,14 +175,17 @@ if module == "readRange":
     try:
         
         data = advanced_xlsx.read_range(sheet, range_)
-        
+        #print(data)
         if not isinstance(data, tuple):
+
             data = data.value.isoformat() if isinstance(data.value, datetime.datetime) or isinstance(data.value, datetime.time) else data.value
         # data = [[x.value for x in i] for i in data if isinstance(i, tuple)]
-        try:
-            data = [[x.value.isoformat() if isinstance(x.value, datetime.datetime) or isinstance(x.value, datetime.time) else x.value for x in i] for i in data if isinstance(i, tuple)]
-        except:
-            data = [i.value.isoformat() if isinstance(i.value, datetime.datetime) or isinstance(i.value, datetime.time) else i.value for i in data if isinstance(i, tuple)]
+        else:
+            try:
+
+                data = [[x.value.isoformat() if isinstance(x.value, datetime.datetime) or isinstance(x.value, datetime.time) else x.value for x in i] for i in data if isinstance(i, tuple)]
+            except:
+                data = [i.value.isoformat() if isinstance(i.value, datetime.datetime) or isinstance(i.value, datetime.time) else i.value for i in data if isinstance(i, tuple)]
         SetVar(var, data)
     
     except Exception as e:
