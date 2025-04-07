@@ -15,10 +15,13 @@ Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
 1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
 2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
+
+
 ## Como usar este módulo
+
 Apenas se você estiver utilizando a versão 2023 do Rocketbot, siga os passos abaixo para evitar o erro:
 
-   ImportError: cannot import name 'etree' from 'lxml'
+ImportError: cannot import name 'etree' from 'lxml'
 
 1. Dirija-se à pasta raiz do Rocketbot e verifique se a biblioteca 'lxml' existe.
 2. Caso não exista, a partir de um terminal, vá para a pasta raiz do Rocketbot e digite:  pip install lxml -t .
@@ -158,3 +161,10 @@ Inserir uma imagem em um documento
 |Caminho da imagem|Selecione o arquivo de imagem que deseja inserir no documento|example.png|
 |Folha |Nome da folha de documento onde inserir a imagem|Sheet1|
 |Célula |Célula onde inserir a imagem|A1|
+
+### Fechar xlsx
+  
+Fechar um arquivo xlsx aberto
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Atribuir resultado à variável||Variável|

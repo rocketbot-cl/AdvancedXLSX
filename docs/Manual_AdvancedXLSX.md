@@ -2,160 +2,168 @@
 
 
 
-# Opciones avanzadas para XLSX
+# XLSX Advanced Options
   
-Da formato a celdas, crea y remueve hojas, filtra datos, agrega y elimina columnas y filas, abre archivos xls y transformalos a formato xlsx.  
+Format cells, create and remove sheets, filter data, add and delete columns and rows, open xls files and transform them into xlsx format.  
 
 *Read this in other languages: [English](Manual_AdvancedXLSX.md), [Português](Manual_AdvancedXLSX.pr.md), [Español](Manual_AdvancedXLSX.es.md)*
   
 ![banner](imgs/Banner_AdvancedXLSX.png)
-## Como instalar este módulo
+## How to install this module
   
-Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
-1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
-2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
-## Como usar este módulo
-Solo si utiliza la version 2023 de Rocketbot debe seguir los siguientes pasos para evitar el error:
+## How to use this module
 
-   ImportError: cannot import name 'etree' from 'lxml'
+Only if you are using the 2023 version of Rocketbot should you follow the following steps to avoid the error:
 
-1. Debe dirigirse a la carpeta raiz de Rocketbot y validar que exista la libreria 'lxml'.
-2. En caso que no exista, desde una terminal ir a la carpeta raiz de Rocketbot y colocar: 
-   pip install lxml -t .
-3. Tomar en cuenta que, debe instalar la libreria con Python 3.10 de 64bits.
+ImportError: cannot import name 'etree' from 'lxml'
 
-## Descripción de los comandos
+1. You should go to the root folder of Rocketbot and verify that the 'lxml' library exists.
+2. If it does not exist, from a terminal, go to the root folder of Rocketbot and type:  pip install lxml -t .
+3. Please note that you should install the library with Python 3.10 64-bit.
 
-### Abrir xls
+
+## Description of the commands
+
+### Open xls
   
-Abre un archivo xls para trabajar con el comando nativo
-|Parámetros|Descripción|ejemplo|
+Open a xls file to work with native command
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ruta archivo XLS |Selecciona el archivo XLS que quieres abrir|example.xls|
-|Columna/as como fecha (opcional) ||0|
-|Id (opcional) |Identificador de sesión|id|
-|Encoding|Tipo de Encoding a aplicar. Por defecto latin-1|latin-1|
-|Asignar resultado a variable||Variable|
+|Path to XLS file |Select the XLS file you want to open|example.xls|
+|Column/s as date (optional) ||0|
+|Id (optional) |Session identifier|id|
+|Encoding|Type of Encoding to apply. Default Latin-1|latin-1|
+|Assign result to variable||Variable|
 
-### Abrir xlsx avanzado
+### Open advanced xlsx
   
-Abre un archivo xlsx para trabajar con el comando nativo
-|Parámetros|Descripción|ejemplo|
+Open a xlsx file to work with native command
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ruta archivo XLSX |Selecciona el archivo XLSX que quieres abrir|example.xlsx|
-|Solo lectura|Marque si desea abrir el xlsx solo para lectura, el contenido no se podrá editar.|False|
-|Conservar vba|Marcar para conservar el posible codigo VBA que pudiera tener el libro.|False|
-|Solo data|Controla si las celdas con fórmulas tienen la fórmula (predeterminado) o el valor almacenado la última vez que Excel leyó la hoja.|False|
-|Conservar links|Marcar si se deben conservar los enlaces a libros de trabajo externos.|False|
-|Id (opcional) |Identificador de sesión|id|
-|Asignar resultado a variable||Variable|
+|Path to XLSX file |Select the XLSX file you want to open|example.xlsx|
+|Read only|Check if you want to open the xlsx in read only mode, the content cannot be edited.|False|
+|Keep vba|Check to keep the possible VBA code that could be in the workbook.|False|
+|Data only|Controls if cells with formulas have the formula (default) or the value stored the|False|
+|Keep links|Check if links to external workbooks should be kept.|False|
+|Id (optional) |Session identifier|id|
+|Assign result to variable||Variable|
 
-### Convertir xls a xlsx
+### Convert xls to xlsx
   
-Convierte un archivo formato xls a formato xlsx
-|Parámetros|Descripción|ejemplo|
+Convert an xls format file to xlsx format
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ruta archivo XLS |Selecciona el archivo XLS que quieres abrir|path/to/file/example.xls|
-|Ruta archivo XLSX |Coloque la ruta completa donde quiere guardar el archivo XLSX (incluyendo nombre y extensión '.xlsx')|path/to/file/example.xlsx|
-|Encoding|Tipo de Encoding a aplicar. Por defecto latin-1|latin-1|
+|Path to XLS file |Select the XLS file you want to open|path/to/file/example.xls|
+|Path to XLSX file |Put the full path where you want to save the XLSX file (including name and '.xlsx' extension)|path/to/file/example.xlsx|
+|Encoding|Type of Encoding to apply. Default Latin-1|latin-1|
 
-### Convertir hoja a csv
+### Convert sheet to csv
   
-Convierte una hoja del archivo xlsx abierto a csv
-|Parámetros|Descripción|ejemplo|
+Convert a sheet of the opened xlsx file to csv
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ruta archivo CSV |Selecciona el archivo CSV que quieres abrir|path/to/file/example.csv|
-|Delimitador|Separador del archivo csv|,|
-|Formato de salida de Fechas|Formato con el que se van a convertir las fechas de la Hoja xlsx a csv|%d/%m/%Y|
-|Asignar resultado a variable|Nombre de la variable donde guardar el resultado|Variable|
+|Path to CSV file |Select the CSV file you want to open|path/to/file/example.csv|
+|Delimiter|Delimiter of the csv file|,|
+|Date output format|Format with which the dates of the xlsx Sheet will be converted to csv|%d/%m/%Y|
+|Assign result to variable |Name of the variable where the result will be stored|Variable|
 
-### Leer rango
+### Read range
   
-Devuelve el valor del rango dado. Un valor si el rango es una celda o una lista si el rango tiene varias celdas.
-|Parámetros|Descripción|ejemplo|
+Returns the value of the given range. One value if the range is a cell or a list if the range has multiple cells.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja |Nombre de la hoja donde se encuentra el rango|Sheet1|
-|Celda o Rango|Celda de inicio del rango|A1|
-|Asignar resultado a variable (Columna)|Nombre de variable donde se guardará el largo de la columna|Variable|
+|Sheet name |Sheet name where the range is located|Sheet1|
+|Cell or range|Start cell of the range|A1|
+|Assign result to variable (Column)|Variable name where the column length will be saved|Variable|
 
-### Renombrar hoja
+### Rename sheet
   
-Renombrar una hoja
-|Parámetros|Descripción|ejemplo|
+Rename a sheet
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja a renombrar |Nombre que tiene la hoja a renombrar|OldSheet|
-|Nuevo nombre de la hoja |Nombre que tendrá la hoja|NewSheet|
+|Sheet name to rename |Name of the sheet to rename|OldSheet|
+|New sheet name|Name of the sheet|NewSheet|
 
-### Formatear celdas
+### Format cells
   
-Dar formato a celdas
-|Parámetros|Descripción|ejemplo|
+Give format to cells
+|Parameters|Description|example|
 | --- | --- | --- |
-|Hoja ||Sheet1|
-|Celdas |Rango de celdas|A1:B5|
-|Alineación Horizontal||---- Select ----|
-|Alineación Vertical||---- Select ----|
-|Format ID |ID Formato. Ver Documentación https//learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.numberingformat?view=openxml-2.8.1|0|
-|Asignar resultado a variable||Variable|
+|Sheet ||Sheet1|
+|Cells |Cells range|A1:B5|
+|Horizontal Alignment||---- Select ----|
+|Vertical Alignment||---- Select ----|
+|ID Formato |Format ID. Check Documentation https//learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.numberingformat?view=openxml-2.8.1|0|
+|Assign result to variable||Variable|
 
-### Crear hoja
+### Create sheet
   
-Crea una nueva hoja
-|Parámetros|Descripción|ejemplo|
+Create a new sheet
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja |Nombre de la hoja que se creará|Sheet2|
+|Sheet name |Sheet name that will be created|Sheet2|
 
-### Borrar hoja
+### Remove sheet
   
-Borrar una hoja del libro
-|Parámetros|Descripción|ejemplo|
+Remove a sheet from workbook
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja ||Sheet1|
+|Sheet name ||Sheet1|
 
-### Contar en rango
+### Count in range
   
-Retorna el la máxima cantidad de filas y columnas desde una celda
-|Parámetros|Descripción|ejemplo|
+Returns the maximum number of rows and columns from a cell
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja |Nombre de la hoja donde se encuentra el rango|Sheet1|
-|Celda de inicio|Celda de inicio del rango|A1|
-|Asignar resultado a variable (Fila)|Nombre de variable donde se guardará el largo de la fila|Variable|
-|Asignar resultado a variable (Columna)|Nombre de variable donde se guardará el largo de la columna|Variable|
+|Sheet name |Sheet name where the range is located|Sheet1|
+|Start cell|Start cell of the range|A1|
+|Assign result to variable (Row)|Variable name where the row length will be saved|Variable|
+|Assign result to variable (Column)|Variable name where the column length will be saved|Variable|
 
-### Filtrar por columna
+### Column filter
   
-Filtrar por columna
-|Parámetros|Descripción|ejemplo|
+Filter by column
+|Parameters|Description|example|
 | --- | --- | --- |
-|Filtros |Filtros a aplicar. Para filtrar por vacíos indicar == None|["A > 3", "D *ARS", "C == Factura"]|
-|Nombre de la hoja |Nombre de la hoja a filtrar.|Sheet1|
-|Resultado detallado|Marcar para obtener resultado detallado.|True|
-|Asignar resultado a variable||Variable|
+|Filters |Filters to apply. For empty filters use == None|["A > 3", "D *ARS", "C == Invoice"]|
+|Sheet's name |Sheet's name to filter.|Sheet1|
+|Detailed result|Mark to get detailed result.|True|
+|Assign result to variable||Variable|
 
-### Eliminar Fila/Columna
+### Delete Row/Column
   
-Comando para eliminar filas y/o columnas
-|Parámetros|Descripción|ejemplo|
+Command to delete rows or columns
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja |Nombre de la hoja a la que se le eliminará la fila o columna|Sheet1|
-|Fila(s)|Rango de filas a eliminar|1:5|
-|Columna(s)|Rango de columnas a eliminar|A:G|
+|Sheet name |Name of the sheet where the row or column will be deleted|Sheet1|
+|Row(s)|Range of rows to delete|1:5|
+|Column(s)|Range of columns to delete|A:G|
 
-### Insertar Fila/Columna
+### Insert Row/Column
   
-Comando para insertar filas y/o columnas
-|Parámetros|Descripción|ejemplo|
+Command to insert rows or columns
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre de la hoja |Nombre de la hoja a la que se le eliminará la fila o columna|Sheet1|
-|Fila(s)|Rango de filas a eliminar|1:5|
-|Columna(s)|Rango de columnas a eliminar|A:G|
+|Sheet name |Name of the sheet where the row or column will be deleted|Sheet1|
+|Row(s)|Range of rows to delete|1:5|
+|Column(s)|Range of columns to delete|A:G|
 
-### Insertar imagen
+### Insert image
   
-Insertar una imagen en un documento
-|Parámetros|Descripción|ejemplo|
+Insert an image into a document
+|Parameters|Description|example|
 | --- | --- | --- |
-|Ruta imagen |Selecciona el archivo de la imagen que quieres insertar en el documento|example.png|
-|Hoja |Nombre de la hoja del documento donde insertar la imagen|Sheet1|
-|Celda |Celda donde insertar la imagen|A1|
+|Image path |Select the image file you want to insert into the document|example.png|
+|Sheet |Name of the document sheet where to insert the image|Sheet1|
+|Cell |Cell where to insert the image|A1|
+
+### Close xlsx
+  
+Close an open xlsx file
+|Parameters|Description|example|
+| --- | --- | --- |
+|Assign result to variable||Variable|

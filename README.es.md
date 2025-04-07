@@ -58,7 +58,10 @@ Comando para eliminar filas y/o columnas
 Comando para insertar filas y/o columnas
 
 14. Insertar imagen  
-Insertar una imagen en un documento  
+Insertar una imagen en un documento
+
+15. Cerrar xlsx  
+Cerrar un archivo xlsx abierto  
 
 
 
