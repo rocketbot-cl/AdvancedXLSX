@@ -58,7 +58,10 @@ Comando para deletar linhas e/ou colunas
 Comando para inserir linhas e/ou colunas
 
 14. Inserir imagem  
-Inserir uma imagem em um documento  
+Inserir uma imagem em um documento
+
+15. Fechar xlsx  
+Fechar um arquivo xlsx aberto  
 
 
 

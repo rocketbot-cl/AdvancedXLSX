@@ -497,3 +497,16 @@ if module == "insert_image":
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
         raise e
+
+if module == "close_xlsx":
+    var_ = GetParams("var_")
+    
+    try:
+        excel.file_[excel.actual_id]['workbook'].close()
+        del excel.file_[excel.actual_id]
+        
+        SetVar(var_, True)
+    except Exception as e:
+        print("Traceback: ", traceback.format_exc())
+        SetVar(var_, False)
+        PrintException()

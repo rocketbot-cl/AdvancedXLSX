@@ -58,7 +58,10 @@ Command to delete rows or columns
 Command to insert rows or columns
 
 14. Insert image  
-Insert an image into a document  
+Insert an image into a document
+
+15. Close xlsx  
+Close an open xlsx file  
 
 
 
