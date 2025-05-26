@@ -42,25 +42,28 @@ Dar formato a células
 8. Criar folha  
 Criar uma nova folha
 
-9. Excluir folha  
+9. Proteger planilha  
+Proteger planilha
+
+10. Excluir folha  
 Excluir uma folha de pasta de trabalho
 
-10. Contar no intervalo  
+11. Contar no intervalo  
 Retorna o número máximo de linhas e colunas de uma célula
 
-11. Filtrar por coluna  
+12. Filtrar por coluna  
 Filtrar por coluna
 
-12. Excluir linha/coluna  
+13. Excluir linha/coluna  
 Comando para deletar linhas e/ou colunas
 
-13. Inserir Linha/Coluna  
+14. Inserir Linha/Coluna  
 Comando para inserir linhas e/ou colunas
 
-14. Inserir imagem  
+15. Inserir imagem  
 Inserir uma imagem em um documento
 
-15. Fechar xlsx  
+16. Fechar xlsx  
 Fechar um arquivo xlsx aberto  
 
 

@@ -42,25 +42,28 @@ Dar formato a celdas
 8. Crear hoja  
 Crea una nueva hoja
 
-9. Borrar hoja  
+9. Proteger hoja  
+Proteger hoja
+
+10. Borrar hoja  
 Borrar una hoja del libro
 
-10. Contar en rango  
+11. Contar en rango  
 Retorna el la máxima cantidad de filas y columnas desde una celda
 
-11. Filtrar por columna  
+12. Filtrar por columna  
 Filtrar por columna
 
-12. Eliminar Fila/Columna  
+13. Eliminar Fila/Columna  
 Comando para eliminar filas y/o columnas
 
-13. Insertar Fila/Columna  
+14. Insertar Fila/Columna  
 Comando para insertar filas y/o columnas
 
-14. Insertar imagen  
+15. Insertar imagen  
 Insertar una imagen en un documento
 
-15. Cerrar xlsx  
+16. Cerrar xlsx  
 Cerrar un archivo xlsx abierto  
 
 

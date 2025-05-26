@@ -108,6 +108,15 @@ Criar uma nova folha
 | --- | --- | --- |
 |Nome da folha |Nome da folha a ser criada|Sheet2|
 
+### Proteger planilha
+  
+Proteger planilha
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Nome da folha |Nome da folha|Sheet2|
+|Senha|Senha que será aplicada à planilha|1524|
+|Atribuir resultado à variável|Nome da variável onde será salvo|Variável|
+
 ### Excluir folha
   
 Excluir uma folha de pasta de trabalho
