@@ -42,25 +42,28 @@ Give format to cells
 8. Create sheet  
 Create a new sheet
 
-9. Remove sheet  
+9. Protect Sheet  
+Protect Sheet
+
+10. Remove sheet  
 Remove a sheet from workbook
 
-10. Count in range  
+11. Count in range  
 Returns the maximum number of rows and columns from a cell
 
-11. Column filter  
+12. Column filter  
 Filter by column
 
-12. Delete Row/Column  
+13. Delete Row/Column  
 Command to delete rows or columns
 
-13. Insert Row/Column  
+14. Insert Row/Column  
 Command to insert rows or columns
 
-14. Insert image  
+15. Insert image  
 Insert an image into a document
 
-15. Close xlsx  
+16. Close xlsx  
 Close an open xlsx file  
 
 

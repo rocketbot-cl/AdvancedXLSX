@@ -510,3 +510,27 @@ if module == "close_xlsx":
         print("Traceback: ", traceback.format_exc())
         SetVar(var_, False)
         PrintException()
+
+if module == "protect_sheet":
+    sheet_name = GetParams("name")
+    password = GetParams("password") 
+
+    try:
+
+        if sheet_name not in wb.sheetnames:
+            raise Exception(f"La hoja '{sheet_name}' no existe en el libro de trabajo.")
+        
+        ws = wb[sheet_name]
+        ws.protection.sheet = True
+        
+        if password:
+            ws.protection.password = password
+            
+        SetVar(GetParams("var_"), True)
+        
+    except Exception as e:
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        SetVar(GetParams("var_"), False)
+        PrintException()
+        raise e
+ 
