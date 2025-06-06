@@ -30,40 +30,43 @@ Convierte un archivo formato xls a formato xlsx
 4. Convertir hoja a csv  
 Convierte una hoja del archivo xlsx abierto a csv
 
-5. Leer rango  
+5. Escribir en celda  
+Escribe un valor en una celda específica. Si se pasa un array, escribe cada valor verticalmente en la misma columna.
+
+6. Leer rango  
 Devuelve el valor del rango dado. Un valor si el rango es una celda o una lista si el rango tiene varias celdas.
 
-6. Renombrar hoja  
+7. Renombrar hoja  
 Renombrar una hoja
 
-7. Formatear celdas  
+8. Formatear celdas  
 Dar formato a celdas
 
-8. Crear hoja  
+9. Crear hoja  
 Crea una nueva hoja
 
-9. Proteger hoja  
+10. Proteger hoja  
 Proteger hoja
 
-10. Borrar hoja  
+11. Borrar hoja  
 Borrar una hoja del libro
 
-11. Contar en rango  
+12. Contar en rango  
 Retorna el la máxima cantidad de filas y columnas desde una celda
 
-12. Filtrar por columna  
+13. Filtrar por columna  
 Filtrar por columna
 
-13. Eliminar Fila/Columna  
+14. Eliminar Fila/Columna  
 Comando para eliminar filas y/o columnas
 
-14. Insertar Fila/Columna  
+15. Insertar Fila/Columna  
 Comando para insertar filas y/o columnas
 
-15. Insertar imagen  
+16. Insertar imagen  
 Insertar una imagen en un documento
 
-16. Cerrar xlsx  
+17. Cerrar xlsx  
 Cerrar un archivo xlsx abierto  
 
 

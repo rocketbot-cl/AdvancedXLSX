@@ -30,40 +30,43 @@ Convert an xls format file to xlsx format
 4. Convert sheet to csv  
 Convert a sheet of the opened xlsx file to csv
 
-5. Read range  
+5. Write cell  
+Writes a value in a specific cell. If an array is passed, writes each value vertically in the same column.
+
+6. Read range  
 Returns the value of the given range. One value if the range is a cell or a list if the range has multiple cells.
 
-6. Rename sheet  
+7. Rename sheet  
 Rename a sheet
 
-7. Format cells  
+8. Format cells  
 Give format to cells
 
-8. Create sheet  
+9. Create sheet  
 Create a new sheet
 
-9. Protect Sheet  
+10. Protect Sheet  
 Protect Sheet
 
-10. Remove sheet  
+11. Remove sheet  
 Remove a sheet from workbook
 
-11. Count in range  
+12. Count in range  
 Returns the maximum number of rows and columns from a cell
 
-12. Column filter  
+13. Column filter  
 Filter by column
 
-13. Delete Row/Column  
+14. Delete Row/Column  
 Command to delete rows or columns
 
-14. Insert Row/Column  
+15. Insert Row/Column  
 Command to insert rows or columns
 
-15. Insert image  
+16. Insert image  
 Insert an image into a document
 
-16. Close xlsx  
+17. Close xlsx  
 Close an open xlsx file  
 
 
