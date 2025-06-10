@@ -30,40 +30,43 @@ Converter um arquivo de formato xls para o formato xlsx
 4. Converter planilha em csv  
 Converta uma planilha do arquivo xlsx aberto em csv
 
-5. Ler intervalo  
+5. Escrever em célula  
+Escreve um valor em uma célula específica. Se for passada uma matriz, escreve cada valor verticalmente na mesma coluna.
+
+6. Ler intervalo  
 Retorna o valor do intervalo fornecido. Um valor se o intervalo for uma célula ou uma lista se o intervalo tiver diversas células.
 
-6. Renomear folha  
+7. Renomear folha  
 Renomear uma folha
 
-7. Formatear celular  
+8. Formatear celular  
 Dar formato a células
 
-8. Criar folha  
+9. Criar folha  
 Criar uma nova folha
 
-9. Proteger planilha  
+10. Proteger planilha  
 Proteger planilha
 
-10. Excluir folha  
+11. Excluir folha  
 Excluir uma folha de pasta de trabalho
 
-11. Contar no intervalo  
+12. Contar no intervalo  
 Retorna o número máximo de linhas e colunas de uma célula
 
-12. Filtrar por coluna  
+13. Filtrar por coluna  
 Filtrar por coluna
 
-13. Excluir linha/coluna  
+14. Excluir linha/coluna  
 Comando para deletar linhas e/ou colunas
 
-14. Inserir Linha/Coluna  
+15. Inserir Linha/Coluna  
 Comando para inserir linhas e/ou colunas
 
-15. Inserir imagem  
+16. Inserir imagem  
 Inserir uma imagem em um documento
 
-16. Fechar xlsx  
+17. Fechar xlsx  
 Fechar um arquivo xlsx aberto  
 
 

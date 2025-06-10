@@ -72,6 +72,15 @@ Converta uma planilha do arquivo xlsx aberto em csv
 |Formato de saída de data|Formato com o qual as datas da planilha xlsx serão convertidas para csv|%d/%m/%Y|
 |Atribuir resultado a variável |Nome da variável para armazenar o resultado|Variável|
 
+### Escrever em célula
+  
+Escreve um valor em uma célula específica. Se for passada uma matriz, escreve cada valor verticalmente na mesma coluna.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Nome da planilha||Planilha1|
+|Célula||A1|
+|Valor a escrever|Pode ser um único valor ou uma matriz vertical (ex [[1],[0],[1]]).|42 ou [[1],[0],[1]]|
+
 ### Ler intervalo
   
 Retorna o valor do intervalo fornecido. Um valor se o intervalo for uma célula ou uma lista se o intervalo tiver diversas células.

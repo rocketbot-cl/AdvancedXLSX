@@ -44,7 +44,7 @@ elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
     sys.path.append(cur_path_x86)
 
 import openpyxl
-from openpyxl.utils.cell import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, coordinate_from_string
 from advanced_xlsx import AdvancedXlsx
 from whichOperation import whichOperation
 
@@ -349,19 +349,27 @@ if module == "advanceFilter":
             except:
                 continue
         
-        if firstFilterSplited[1] == "==":
-            if firstFilterSplited[2] == "" and (cellValue is None or cellValue == ""):
-                variableConTodo.append([{"row": f"{index}", "data" : row}])
-            elif whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo):
-                variableConTodo.append([{"row": f"{index}", "data" : row}])
+        # if firstFilterSplited[1] == "==":
+        #     if firstFilterSplited[2] == "" and (cellValue is None or cellValue == ""):
+        #         variableConTodo.append([{"row": f"{index}", "data" : row}])
+        #     elif whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo):
+        #         variableConTodo.append([{"row": f"{index}", "data" : row}])
 
-        #This try/except is to catch the exception when cell values are "NoneType" and can't be compared with "<" or ">"
-        try:
-            if not "None" in userFilters[0]:
-                if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
-                    variableConTodo.append([{"row" : f"{index}", "data" : row}])
-        except:
-            continue
+        # #This try/except is to catch the exception when cell values are "NoneType" and can't be compared with "<" or ">"
+        # try:
+        #     if not "None" in userFilters[0]:
+        #         if (whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo)):
+        #             variableConTodo.append([{"row" : f"{index}", "data" : row}])
+        # except:
+        #     continue
+        if firstFilterSplited[2] == "" and (cellValue is None or cellValue == ""):
+            variableConTodo.append([{"row": f"{index}", "data" : row}])
+        else:
+            try:
+                if whichOperation(cellValue, firstFilterSplited[1], firstFilterSplited[2], tipo):
+                    variableConTodo.append([{"row": f"{index}", "data" : row}])
+            except:
+                continue
     
     count = 0
     variableConCasiTodo = []
@@ -534,3 +542,32 @@ if module == "protect_sheet":
         PrintException()
         raise e
  
+if module == "write_cell":
+    try:
+        sheet = GetParams("sheet")
+        cell = GetParams("cell")
+        value = GetParams("value")
+
+        advanced_xlsx.change_sheet(sheet)
+        ws = excel.file_[excel.actual_id]['workbook'][sheet]
+        import copy
+
+        try:
+            val = eval(value)
+        except:
+            val = value
+
+        col_letter, row_start = coordinate_from_string(cell)
+        col_index = column_index_from_string(col_letter)
+
+        if isinstance(val, list) and all(isinstance(i, list) for i in val):
+            for i, v in enumerate(val):
+                row_num = row_start + i
+                ws.cell(row=row_num, column=col_index).value = v[0] if v else ""
+        else:
+            ws[cell].value = val
+
+    except Exception as e:
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
