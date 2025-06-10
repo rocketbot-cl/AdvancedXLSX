@@ -549,7 +549,7 @@ if module == "write_cell":
         value = GetParams("value")
 
         advanced_xlsx.change_sheet(sheet)
-        ws = excel.file_[excel.actual_id]['workbook'].active
+        ws = excel.file_[excel.actual_id]['workbook'][sheet]
         import copy
 
         try:

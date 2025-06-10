@@ -612,7 +612,7 @@
         "options": null
       },
       "form": {
-        "css": "modal-md",
+        "css": "modal-lg",
         "inputs": [
           {
             "type": "input",
