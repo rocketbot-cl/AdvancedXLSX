@@ -45,6 +45,7 @@ elif sys.maxsize <= 2**32 and cur_path_x86 not in sys.path:
 
 import openpyxl
 from openpyxl.utils.cell import column_index_from_string, coordinate_from_string
+from openpyxl.utils import get_column_letter
 from advanced_xlsx import AdvancedXlsx
 from whichOperation import whichOperation
 
@@ -562,8 +563,10 @@ if module == "write_cell":
 
         if isinstance(val, list) and all(isinstance(i, list) for i in val):
             for i, v in enumerate(val):
-                row_num = row_start + i
-                ws.cell(row=row_num, column=col_index).value = v[0] if v else ""
+                for j, cell_val in enumerate(v):
+                    row_num = row_start + i
+                    col_num = col_index + j
+                    ws.cell(row=row_num, column=col_num).value = cell_val
         else:
             ws[cell].value = val
 
